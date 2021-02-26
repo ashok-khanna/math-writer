@@ -1,16 +1,43 @@
-// define a handler
+/* Determine which operating system, so that we can use the right shortcuts.
+For your own private version, you can simply hardcode the OS variable to Mac, Windows or Linux
+Taken from: https://stackoverflow.com/questions/38241480/detect-macos-ios-windows-android-and-linux-os-with-js*/
+
+function getOS() {
+  var userAgent = window.navigator.userAgent,
+      platform = window.navigator.platform,
+      macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K', 'darwin'],
+      windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+      iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+      os = null;
+
+  if (macosPlatforms.indexOf(platform) !== -1) {
+    os = 'Mac';
+  } else if (iosPlatforms.indexOf(platform) !== -1) {
+    os = 'iOS';
+  } else if (windowsPlatforms.indexOf(platform) !== -1) {
+    os = 'Windows';
+  } else if (/Android/.test(userAgent)) {
+    os = 'Android';
+  } else if (!os && /Linux/.test(platform)) {
+    os = 'Linux';
+  }
+
+  return os;
+}
+
+/* Set the modifier key to ctrl if Mac, otherwise meta (windows key) */
+var modifier = (getOS() == 'Mac') ? "ctrl" : "alt";
+
+// Key Handler
 function doc_keyUp(e) {
-    // this would test for whichever key is 40 (down arrow) and the ctrl key at the same time
     if (e.ctrlKey && e.key === 'e') {
-        // call your function to do the thing
         editor();
     } else if (e.ctrlKey && e.key === 'p') {
-        // call your function to do the thing
         preview();
     } 
 }
 
-// register the handler 
+// Register the handler 
 document.addEventListener('keyup', doc_keyUp, false);
 
 
@@ -60,11 +87,7 @@ var dfreeBodyConfig = {
   init_instance_callback: function (editor) {
     
     editor.shortcuts.add(
-      'meta+65', 'Inserts for meta+a', function () {
-      tinymce.activeEditor.execCommand('mceInsertContent', false, 'α');
-    });
-    editor.shortcuts.add(
-      'ctrl+65', 'Inserts for ctrl+a', function () {
+      modifier.concat('+b'), 'Inserts for ctrl+a', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '∧');
     });
     editor.shortcuts.add(
@@ -203,7 +226,7 @@ function preview(){
       getContent();
 }
 
-function shortcut(){
+function shortcuts(){
       document.getElementById("editor-button").className = "button bt-inactive";
       document.getElementById("preview-button").className = "button bt-inactive";
       document.getElementById("shortcut-button").className = "button bt-active";

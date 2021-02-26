@@ -36,14 +36,6 @@
 	font-style: italic;
 }
 
-html {
-	font-family: 'Stix Two Text', 'Stix Two Math Regular', Serif;
-	text-align: justify;
-	font-size: 100%;
-	-webkit-font-smoothing: antialiased;
-  	-moz-osx-font-smoothing: grayscale;
-}
-
 @media print { 
 	#github, #star, #text, #top-gutter, #second-gutter, #editor-button,
 #preview-button, #char-button, #help-button, #third-gutter {
@@ -51,8 +43,65 @@ html {
 	}
 }
 
-	@page { size: auto;  margin: 0mm; }
 
+html {
+	font-family: 'Stix Two Text', 'Stix Two Math Regular', Serif;
+	text-align: justify;
+	font-size: 100%;
+	-webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale;
+  	background-color: white;
+}
+
+body {
+	margin: 14px;
+	background-color: white;
+	font-family: 'Stix Two Text', 'Stix Two Math Regular', Serif;
+}
+
+table {
+	  border: 1px solid black;
+	  border-collapse: collapse;
+	  width: 75%;
+	  text-align: left;
+	  table-layout: fixed;
+
+}
+
+th, td {
+	border: 1px solid black;
+	padding: 10px;
+}
+
+mark {
+	color: white;
+	font-weight: bold;
+	background-color: #1976D2;
+	display: inline-block;
+	padding: 4px;
+	margin: 4px;
+	border-radius: 4px;
+	min-width: 100px;
+	text-align: center;
+	cursor: pointer;
+}
+
+code {
+	color: #1976D2;
+}
+
+/* Custom HTML tag for quickly typing blue text */
+w {
+	color: blue;
+}
+
+.table-tutorial {
+	table-layout: auto;
+}
+
+.shortcut-table {
+	text-align: center;
+}
 
 .button {
 	text-align: center;
@@ -61,6 +110,7 @@ html {
   	align-items: center;
   	border-radius: 4px;
   	border: 1px solid #1976D2;
+  	cursor: pointer;
 }
 
 .bt-inactive {
@@ -79,15 +129,8 @@ html {
 	color: white;
 }
 
+
 /* Layout - Main Page */
-
-
-
-body {
-	margin: 14px;
-	background-color: white;
-	font-family: 'Stix Two Text', 'Stix Two Math Regular', Serif;
-}
 
 main {
 	margin: 26px;
@@ -168,6 +211,7 @@ main {
 #editor {
   grid-area: A;
   color: black;
+  display: none;
 }
 
 #tinymce {
@@ -185,8 +229,8 @@ main {
 }
 
 #shortcut {
-	grid-area: C;
-	display: none;
+	grid-area: A;
+	display: block;
 }
 
 #help {
@@ -195,7 +239,10 @@ main {
 }
 
 /* Pushes last three buttons in TinyMCE toolbar to the right */
+
 .tox-toolbar__group:last-child { margin-left: auto!important; }
 
+
+/* Remove borders from toolbar in TinyMCE */
 .tox:not([dir=rtl]) {border:none;}
 .tox-toolbar {border: 1px;}
