@@ -50,7 +50,7 @@ var dfreeBodyConfig = {
   statusbar: false,
   menubar: false,
   inline: false,
-  toolbar: 'charmap | bold italic underline | styleselect forecolor | table link | numlist bullist | removeformat undo redo | searchreplace | mycharmap | help code fullscreen',
+  toolbar: 'charmap | bold italic underline | styleselect forecolor | table link | numlist bullist | removeformat undo redo | searchreplace | mycharmap | importHTML exportHTML | help code fullscreen',
   min_height: 200,
   plugins: ['quickbars', 'textpattern', 'lists', 'paste', 'autoresize', 'code', 'link', 'table', 'searchreplace', 'charmap', 'fullscreen', 'help'],
   paste_as_text: true,
@@ -83,7 +83,23 @@ var dfreeBodyConfig = {
         char();
         api.setActive(!api.isActive());
       }
-    });},
+    });
+
+editor.ui.registry.addToggleButton('exportHTML', {
+      text: 'Export Content',
+      onAction: function (api) {
+exportFile(tinymce.activeEditor.getContent());
+      }
+    });
+
+editor.ui.registry.addToggleButton('importHTML', {
+      text: 'Import Content',
+      onAction: function (api) {
+document.getElementById('import-file').click();
+      }
+    });
+
+  },
   init_instance_callback: function (editor) {
     
     editor.shortcuts.add(
@@ -250,4 +266,38 @@ function help(){
       document.getElementById("preview").style.display = "none";
       document.getElementById("shortcut").style.display = "none";
       document.getElementById("help").style.display = "block";     
+}
+
+/* Export to File */
+
+function download(content, fileName, contentType) {
+   var a = document.createElement("a");
+   var file = new Blob([content], {type: contentType});
+   a.href = URL.createObjectURL(file);
+   a.download = fileName;
+   a.click();
+}
+
+function exportFile(data){
+   // Output the result
+   fileTitle = "math-export.txt"
+   download(data, fileTitle, 'text/plain');
+}
+
+/* Import from File */
+
+
+
+function readSingleFile(e) {
+  var file = e.target.files[0];
+  if (!file) {
+    return;
+  }
+
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    tinymce.activeEditor.setContent(e.target.result);
+  };
+
+  reader.readAsText(file);
 }

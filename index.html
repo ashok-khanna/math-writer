@@ -209,7 +209,9 @@ window.MathJax = {
   
   </div>
 </main>
+<input type="file" style="display:none;" id="import-file" name="file"/>
 <script>
+  document.getElementById('import-file').addEventListener('change', readSingleFile, false);
   document.getElementById("tinymce").focus();
 </script>
 </body>
