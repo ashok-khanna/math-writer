@@ -18,7 +18,7 @@ document.addEventListener('keyup', doc_keyUp, false);
 
 var dfreeBodyConfig = {
   selector: '.dfree-body',
-  content_css: "editor.css",
+  content_css: "writer.css",
   branding: false,
   statusbar: false,
   menubar: false,
