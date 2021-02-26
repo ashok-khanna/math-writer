@@ -52,8 +52,8 @@
 		display: none !important;
 	}
 
-	#tinymce {
-		max-width: 80% !important;
+	.button {
+		font-size: 0.8rem;
 	}
 }
 
@@ -248,6 +248,7 @@ main {
   grid-area: A;
   color: black;
   display: block;
+  text-align: center;
 
 }
 
@@ -257,6 +258,7 @@ main {
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 10px !important;
+  padding-right: 10px !important;
 }
 
 #char {
@@ -294,4 +296,4 @@ main {
 
 /* Remove borders from toolbar in TinyMCE */
 .tox:not([dir=rtl]) {border:none;}
-.tox-toolbar {border: 1px;}
+.tox, .tox-toolbar, .tox-toolbar-primary {border: 1px; max-width: calc(100%-26px); margin: 0 auto;}
