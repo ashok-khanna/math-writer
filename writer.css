@@ -1,0 +1,201 @@
+@font-face {
+	font-family: 'my-courier';
+	src: url('fonts/Courier.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'STIX Two Math Regular';
+	src: url('fonts/STIXTwoMath-Regular.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'STIX Two Text';
+	src: url('fonts/STIXTwoText-Regular.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'STIX Two Text';
+	src: url('fonts/STIXTwoText-Bold.woff2') format('woff2');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'STIX Two Text';
+	src: url('fonts/STIXTwoText-Italic.woff2') format('woff2');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'STIX Two Text';
+	src: url('fonts/STIXTwoText-BoldItalic.woff2') format('woff2');
+	font-weight: bold;
+	font-style: italic;
+}
+
+html {
+	font-family: 'Stix Two Text', 'Stix Two Math Regular', Serif;
+	text-align: justify;
+	font-size: 100%;
+	-webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale;
+}
+
+@media print { 
+	#github, #star, #text, #top-gutter, #second-gutter, #editor-button,
+#preview-button, #char-button, #help-button, #third-gutter {
+		display: none !important;
+	}
+}
+
+	@page { size: auto;  margin: 0mm; }
+
+
+.button {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+  	align-items: center;
+  	border-radius: 4px;
+  	border: 1px solid #1976D2;
+}
+
+.bt-inactive {
+	background-color: white;
+	color: #1976D2;
+}
+
+.bt-inactive:hover {
+	background-color: #97C0EA;
+	border: 1px solid #1976D2;
+	color: white;
+}
+
+.bt-active {
+	background-color: #1976D2;
+	color: white;
+}
+
+/* Layout - Main Page */
+
+
+
+body {
+	margin: 14px;
+	background-color: white;
+	font-family: 'Stix Two Text', 'Stix Two Math Regular', Serif;
+}
+
+main {
+	margin: 26px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: auto 1rem 1rem 2rem 1rem 1rem auto;
+	grid-column-gap: 2.5vw;
+	grid-template-areas:
+		"github star text text"
+		"top-gutter top-gutter top-gutter top-gutter"
+		"second-gutter second-gutter second-gutter second-gutter"
+		"editor-button preview-button shortcut-button help-button"
+		"third-gutter third-gutter third-gutter third-gutter"
+		"main-screen main-screen main-screen main-screen";
+}
+
+#text {
+	grid-area: text;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	font-family: 'my-courier', monospace;
+}
+
+#github {
+	grid-area: github;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+#star {
+	grid-area: star;
+	text-align: left;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+#top-gutter {
+	grid-area: top-gutter;
+	border-bottom: solid 1px #dedede;
+}
+
+#second-gutter {
+	grid-area: second-gutter;
+}
+
+#editor-button {
+	grid-area: editor-button;
+}
+
+#preview-button {
+	grid-area: preview-button;
+}
+
+#shortcut-button {
+	grid-area: shortcut-button;
+}
+
+#help-button {
+	grid-area: help-button;
+}
+
+#third-gutter {
+	grid-area: third-gutter;
+}
+
+#main-screen {
+	grid-area: main-screen;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-column-gap: 10px;
+	grid-template-areas:
+		"A A A A";
+}
+
+#editor {
+  grid-area: A;
+  color: black;
+}
+
+#tinymce {
+	  background-color: #FFEFD5;
+}
+
+#char {
+	grid-area: char;
+	display: none;
+}
+
+#preview {
+	grid-area: B;
+	display: none;
+}
+
+#shortcut {
+	grid-area: C;
+	display: none;
+}
+
+#help {
+	grid-area: D;
+	display: none;
+}
+
+/* Pushes last three buttons in TinyMCE toolbar to the right */
+.tox-toolbar__group:last-child { margin-left: auto!important; }
+
+.tox:not([dir=rtl]) {border:none;}
+.tox-toolbar {border: 1px;}
