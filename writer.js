@@ -28,16 +28,23 @@ function getOS() {
 /* Set the modifier key to ctrl if Mac, otherwise meta (windows key) */
 var modifier = (getOS() == 'Mac') ? "ctrl" : "alt";
 
-// Key Handler
+/* Function that takes a key input and executes code depending on the 
+combination. For some reason, CTRL + SHIFT + 2 and CTRL + SHIFT + 6 did 
+not work. Hence the slighlty awkard numbering scheme. */
 function doc_keyUp(e) {
-    if (e.ctrlKey && e.key === 'e') {
+    if (e.ctrlKey && e.shiftKey && e.key === '1') {
         editor();
-    } else if (e.ctrlKey && e.key === 'p') {
+    } else if (e.ctrlKey && e.shiftKey && e.key === '3') {
         preview();
+    }  else if (e.ctrlKey && e.shiftKey && e.key === '4') {
+        shortcuts();
+    } else if (e.ctrlKey && e.shiftKey && e.key === '5') {
+        help();
     } 
 }
 
-// Register the handler 
+/* Register an event listener for keystrokes and intercept in case it
+meets the above patterns */
 document.addEventListener('keyup', doc_keyUp, false);
 
 
@@ -102,80 +109,116 @@ document.getElementById('import-file').click();
   init_instance_callback: function (editor) {
     
     editor.shortcuts.add(
-      modifier.concat('+b'), 'Inserts for ctrl+a', function () {
-      tinymce.activeEditor.execCommand('mceInsertContent', false, '∧');
+      'ctrl+shift+e', 'Inserts for ctrl+shift+e', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, '∈');
     });
+ 
+     editor.shortcuts.add(
+      'ctrl+alt+e', 'Inserts for ctrl+alt+e', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, '∉');
+    });
+    
+     editor.shortcuts.add(
+      'ctrl+shift+c', 'Inserts for ctrl+shift+c', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, '⊂');
+    });
+
+     editor.shortcuts.add(
+      'ctrl+alt+c', 'Inserts for ctrl+alt+c', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, '⊃');
+    });
+
     editor.shortcuts.add(
-      'ctrl+shift+65', 'Inserts for ctrl+shift+a', function () {
+      'ctrl+shift+u', 'Inserts for ctrl+shift+u', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, '⋃');
+    });
+
+    editor.shortcuts.add(
+      'ctrl+shift+i', 'Inserts for ctrl+shift+i', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, '⋂');
+    });
+
+    editor.shortcuts.add(
+      'ctrl+shift+0', 'Inserts for ctrl+shift+0', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, '∅');
+    });
+
+
+
+    editor.shortcuts.add(
+      'ctrl+shift+a', 'Inserts for ctrl+shift+a', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, '⋀');
+    });
+
+    editor.shortcuts.add(
+      'ctrl+shift+o', 'Inserts for ctrl+shift+o', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, '⋁');
+    });
+
+    editor.shortcuts.add(
+      'ctrl+shift+n', 'Inserts for ctrl+shift+n', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, '¬');
+    });
+
+    editor.shortcuts.add(
+      'ctrl+shift+x', 'Inserts for ctrl+shift+x', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, '∃');
+    });
+
+    editor.shortcuts.add(
+      'ctrl+alt+x', 'Inserts for ctrl+alt+x', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, '∄');
+    });
+
+    editor.shortcuts.add(
+      'ctrl+alt+a', 'Inserts for ctrl+alt+a', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '∀');
     });
 
     editor.shortcuts.add(
-      'ctrl+188', 'Inserts for ctrl+,', function () {
+      'ctrl+shift+t', 'Inserts for ctrl+shift+t', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, '∴');
+    });
+
+    editor.shortcuts.add(
+      'ctrl+shift+b', 'Inserts for ctrl+shift+b', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, '∵');
+    });
+
+
+
+    editor.shortcuts.add(
+      'ctrl+shift+<', 'Inserts for ctrl+shift+,', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '≤');
     });
-    editor.shortcuts.add(
-      'ctrl+shift+188', 'Inserts for ctrl+shift+,', function () {
-      tinymce.activeEditor.execCommand('mceInsertContent', false, '≮');
-    });
 
     editor.shortcuts.add(
-      'ctrl+190', 'Inserts for ctrl+,', function () {
+      'ctrl+shift+.', 'Inserts for ctrl+shift+.', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '≥');
     });
+
     editor.shortcuts.add(
-      'ctrl+shift+190', 'Inserts for ctrl+shift+,', function () {
-      tinymce.activeEditor.execCommand('mceInsertContent', false, '≯');
+      'ctrl+shift+=', 'Inserts for ctrl+shift+=', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, '≠');
     });
-    
-    
+
+    editor.shortcuts.add(
+      'ctrl+shift+-', 'Inserts for ctrl+shift+-', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, '±');
+    });
+
+    editor.shortcuts.add(
+      'ctrl+alt+>', 'Inserts for ctrl+alt+>', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, '→');
+    });
+
+    editor.shortcuts.add(
+      'ctrl+alt+<', 'Inserts for ctrl+alt+<', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, '↔︎');
+    });
+
 }
 
-/*
-
-    'CTRL+E': function(e, original) {
-      this.insert('∈');
-    },
-    'CTRL+C': function(e, original) {
-      this.insert('⊂');
-    },
-    'CTRL+D': function(e, original) {
-      this.insert('⊃');
-    },
-    'CTRL+SHIFT+E': function(e, original) {
-      this.insert('∃');
-    },
-    'CTRL+U': function(e, original) {
-      this.insert('∪');
-    },
-    'CTRL+I': function(e, original) {
-      this.insert('∩');
-    },
-    'CTRL+O': function(e, original) {
-      this.insert('∨');
-    },
-    'CTRL+N': function(e, original) {
-      this.insert('¬');
-    },
-    'CTRL+0': function(e, original) {
-      this.insert('∅');
-    },
-    'CTRL+S': function(e, original) {
-      this.insert('∑');
-    },
-    'CTRL+P': function(e, original) {
-      this.insert('∏');
-    },
-    'CTRL+=': function(e, original) {
-      this.insert('≠');
-    },
-    'CTRL+-': function(e, original) {
-      this.insert('→');
-    },
-    'CTRL+[': function(e, original) {
-      this.insert('⇔');
-
-*/
 };
 
 
