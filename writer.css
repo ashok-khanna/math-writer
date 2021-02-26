@@ -1,9 +1,4 @@
 @font-face {
-	font-family: 'my-courier';
-	src: url('fonts/Courier.ttf') format('truetype');
-}
-
-@font-face {
 	font-family: 'STIX Two Math Regular';
 	src: url('fonts/STIXTwoMath-Regular.woff2') format('woff2');
 }
@@ -44,16 +39,23 @@
 }
 
 @media screen and (max-width: 1000px) {
-	#char {
-		width: 360px !important;
-	}
-
 	#text {
 		display: none !important;
 	}
 
 	.button {
-		font-size: 0.8rem;
+		font-size: 0.9rem !important;
+	}
+
+	main {
+		grid-template-areas:
+		"github github star star"
+		"top-gutter top-gutter top-gutter top-gutter"
+		"second-gutter second-gutter second-gutter second-gutter"
+		"editor-button preview-button shortcut-button help-button"
+		"third-gutter third-gutter third-gutter third-gutter"
+		"main-screen main-screen main-screen main-screen"
+		"char char char char" !important;
 	}
 }
 
@@ -189,7 +191,7 @@ main {
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	font-family: 'my-courier', monospace;
+	font-family: monospace;
 }
 
 #github {
@@ -249,7 +251,6 @@ main {
   color: black;
   display: block;
   text-align: center;
-
 }
 
 
@@ -269,7 +270,7 @@ main {
 	flex-wrap: wrap;
 	flex-direction: row;
 	margin: 0 auto;
-	width: 720px;
+	width: 50%;
 	padding: 20px;
 	border: 1px solid black;
 }
