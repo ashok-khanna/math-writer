@@ -44,14 +44,13 @@ document.addEventListener('keyup', doc_keyUp, false);
 /* TinyMCE Editor Setup */
 
 var dfreeBodyConfig = {
-  selector: '.dfree-body',
+  selector: '#tinymce',
   content_css: "writer.css",
   branding: false,
   statusbar: false,
   menubar: false,
   inline: false,
   toolbar: 'charmap | bold italic underline | styleselect forecolor | table link | numlist bullist | removeformat undo redo | searchreplace | mycharmap | importHTML exportHTML | help code fullscreen',
-  min_height: 200,
   plugins: ['quickbars', 'textpattern', 'lists', 'paste', 'autoresize', 'code', 'link', 'table', 'searchreplace', 'charmap', 'fullscreen', 'help'],
   paste_as_text: true,
   entity_encoding: 'raw',
@@ -203,10 +202,12 @@ function getContent(){
 }
 
 function char(){
-      if (document.getElementById("char").style.display == "block"){ 
+      if (document.getElementById("char").style.display == "flex"){ 
             document.getElementById("char").style.display = "none";
+            document.getElementById("main-screen").style.gridTemplateAreas = '"A A A A"';
       } else {
-            document.getElementById("char").style.display = "block";
+            document.getElementById("char").style.display = "flex";
+            document.getElementById("main-screen").style.gridTemplateAreas = '"A A A A" "char char char char"';
       }
 }
 
@@ -266,6 +267,13 @@ function help(){
       document.getElementById("preview").style.display = "none";
       document.getElementById("shortcut").style.display = "none";
       document.getElementById("help").style.display = "block";     
+}
+
+
+/* Insert Character */
+
+function insertTextAtCursor(character){
+  tinymce.activeEditor.execCommand('mceInsertContent', false, character);
 }
 
 /* Export to File */

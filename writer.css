@@ -54,7 +54,7 @@ html {
 }
 
 body {
-	margin: 14px;
+	margin: 0px;
 	background-color: white;
 	font-family: 'Stix Two Text', 'Stix Two Math Regular', Serif;
 }
@@ -113,7 +113,7 @@ w {
   	cursor: pointer;
 }
 
-.bt-inactive {
+.bt-inactive, .dark-char-button:hover {
 	background-color: white;
 	color: #1976D2;
 }
@@ -124,10 +124,40 @@ w {
 	color: white;
 }
 
-.bt-active {
+.bt-active, .light-char-button:hover {
 	background-color: #1976D2;
 	color: white;
 }
+
+.light-char-button {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+  	align-items: center;
+  	border-radius: 4px;
+  	border: 1px solid #1976D2;
+  	cursor: pointer;
+  	padding: 4px;
+  	background-color: white;
+  	color: black;
+  	font-size: 1.5rem;
+}
+
+.dark-char-button {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+  	align-items: center;
+  	border-radius: 4px;
+  	border: 1px solid #1976D2;
+  	cursor: pointer;
+	background-color: #1976D2;
+	color: white;
+	padding: 4px;
+	font-size: 1.5rem;
+
+}
+
 
 
 /* Layout - Main Page */
@@ -136,7 +166,7 @@ main {
 	margin: 26px;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-template-rows: auto 1rem 1rem 2rem 1rem 1rem auto;
+	grid-template-rows: auto 1rem 1rem 2rem 1rem 1rem auto auto;
 	grid-column-gap: 2.5vw;
 	grid-template-areas:
 		"github star text text"
@@ -144,7 +174,8 @@ main {
 		"second-gutter second-gutter second-gutter second-gutter"
 		"editor-button preview-button shortcut-button help-button"
 		"third-gutter third-gutter third-gutter third-gutter"
-		"main-screen main-screen main-screen main-screen";
+		"main-screen main-screen main-screen main-screen"
+		"char char char char";
 }
 
 #text {
@@ -204,23 +235,31 @@ main {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-column-gap: 10px;
-	grid-template-areas:
-		"A A A A";
+	grid-template-areas: "A A A A";
 }
 
 #editor {
   grid-area: A;
   color: black;
-  display: none;
+  display: block;
+
 }
 
+
 #tinymce {
-	  background-color: #FFEFD5;
+  background-color: #FFEFD5 !important; 
+  padding: 10px !important;
 }
 
 #char {
 	grid-area: char;
 	display: none;
+	justify-content: center;
+	align-items: stretch;
+	flex-wrap: wrap;
+	flex-direction: row;
+	width: 800px;
+	margin: 0 auto;
 }
 
 #preview {
@@ -229,8 +268,8 @@ main {
 }
 
 #shortcut {
-	grid-area: A;
-	display: block;
+	grid-area: C;
+	display: none;
 }
 
 #help {

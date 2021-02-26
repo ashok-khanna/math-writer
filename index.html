@@ -46,12 +46,12 @@ window.MathJax = {
   <div id="help-button" class="button bt-inactive" onclick="help()">Read Me</div>
   <div id="third-gutter"></div>
 
-  <div id="main-screen"><div id="editor">
-    <div id="tinymce" class="dfree-body" contenteditable="true" style="position: relative;" spellcheck="false"></div></div>
+    <div id="main-screen"><div id="editor">
+    <div id="tinymce" contenteditable="true" spellcheck="false"></div></div>
     <div id="preview">`sum_(i=1)^n i^3=((n(n+1))/2)^2`</div>
     <div id="shortcut">
 
-    <h3>Keyboard Shortcuts</h3>
+    <h3>Relationship Operators</h3>
 
     <table class="shortcut-table">
       <thead>
@@ -65,9 +65,39 @@ window.MathJax = {
       <tbody>
         <tr>
           <td>∈</td>
-          <td>in/td>
+          <td>in</td>
           <td>\le</td>
           <td id="in"></td>
+        </tr>
+        <tr>
+          <td>∉</td>
+          <td>!in</td>
+          <td>\notin</td>
+          <td id="nin"></td>
+        </tr>
+        <tr>
+          <td>⊂</td>
+          <td>sub</td>
+          <td>\subset</td>
+          <td id="sub"></td>
+        </tr>
+        <tr>
+          <td>⊃</td>
+          <td>sup</td>
+          <td>\supset</td>
+          <td id="sup"></td>
+        </tr>
+        <tr>
+          <td>⊃</td>
+          <td>sup</td>
+          <td>\supset</td>
+          <td id="sup"></td>
+        </tr>
+        <tr>
+          <td>⊃</td>
+          <td>sup</td>
+          <td>\supset</td>
+          <td id="sup"></td>
         </tr>
         <tr>
           <td>≤</td>
@@ -87,11 +117,268 @@ window.MathJax = {
           <td>\ne</td>
           <td id="ne"></td>
         </tr>
+        <tr>
+          <td>→</td>
+          <td>rarr</td>
+          <td>\rightarrow</td>
+          <td id="ra"></td>
+        </tr>
+        <tr>
+          <td>↔︎</td>
+          <td>harr</td>
+          <td>\leftrightarrow</td>
+          <td id="lra"></td>
+        </tr>
+      </tbody>
+    </table>
+
+  <h3>Relationship Operators</h3>
+
+    <table class="shortcut-table">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>AsciiMath</th>
+          <th>LaTex</th>
+          <th>Shortcut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>∈</td>
+          <td>in</td>
+          <td>\le</td>
+          <td id="in"></td>
+        </tr>
+        <tr>
+          <td>∉</td>
+          <td>!in</td>
+          <td>\notin</td>
+          <td id="nin"></td>
+        </tr>
+        <tr>
+          <td>⊂</td>
+          <td>sub</td>
+          <td>\subset</td>
+          <td id="sub"></td>
+        </tr>
+        <tr>
+          <td>⊃</td>
+          <td>sup</td>
+          <td>\supset</td>
+          <td id="sup"></td>
+        </tr>
+        <tr>
+          <td>⊃</td>
+          <td>sup</td>
+          <td>\supset</td>
+          <td id="sup"></td>
+        </tr>
+        <tr>
+          <td>⊃</td>
+          <td>sup</td>
+          <td>\supset</td>
+          <td id="sup"></td>
+        </tr>
+        <tr>
+          <td>≤</td>
+          <td>==</td>
+          <td>\le</td>
+          <td id="le"></td>
+        </tr>
+        <tr>
+          <td>≥</td>
+          <td>>-</td>
+          <td>\ge</td>
+          <td id="ge"></td>
+        </tr>
+        <tr>
+          <td>≠</td>
+          <td>!=</td>
+          <td>\ne</td>
+          <td id="ne"></td>
+        </tr>
+        <tr>
+          <td>→</td>
+          <td>rarr</td>
+          <td>\rightarrow</td>
+          <td id="ra"></td>
+        </tr>
+        <tr>
+          <td>↔︎</td>
+          <td>harr</td>
+          <td>\leftrightarrow</td>
+          <td id="lra"></td>
+        </tr>
+      </tbody>
+    </table>
+
+  <h3>Logic Operators</h3>
+
+    <table class="shortcut-table">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>AsciiMath</th>
+          <th>LaTex</th>
+          <th>Shortcut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>∈</td>
+          <td>in</td>
+          <td>\le</td>
+          <td id="in"></td>
+        </tr>
+        <tr>
+          <td>∉</td>
+          <td>!in</td>
+          <td>\notin</td>
+          <td id="nin"></td>
+        </tr>
+        <tr>
+          <td>⊂</td>
+          <td>sub</td>
+          <td>\subset</td>
+          <td id="sub"></td>
+        </tr>
+        <tr>
+          <td>⊃</td>
+          <td>sup</td>
+          <td>\supset</td>
+          <td id="sup"></td>
+        </tr>
+        <tr>
+          <td>⊃</td>
+          <td>sup</td>
+          <td>\supset</td>
+          <td id="sup"></td>
+        </tr>
+        <tr>
+          <td>⊃</td>
+          <td>sup</td>
+          <td>\supset</td>
+          <td id="sup"></td>
+        </tr>
+        <tr>
+          <td>≤</td>
+          <td>==</td>
+          <td>\le</td>
+          <td id="le"></td>
+        </tr>
+        <tr>
+          <td>≥</td>
+          <td>>-</td>
+          <td>\ge</td>
+          <td id="ge"></td>
+        </tr>
+        <tr>
+          <td>≠</td>
+          <td>!=</td>
+          <td>\ne</td>
+          <td id="ne"></td>
+        </tr>
+        <tr>
+          <td>→</td>
+          <td>rarr</td>
+          <td>\rightarrow</td>
+          <td id="ra"></td>
+        </tr>
+        <tr>
+          <td>↔︎</td>
+          <td>harr</td>
+          <td>\leftrightarrow</td>
+          <td id="lra"></td>
+        </tr>
+      </tbody>
+    </table>
+
+  <h3>Greek Letters</h3>
+
+    <table class="shortcut-table">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>AsciiMath</th>
+          <th>LaTex</th>
+          <th>Shortcut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>∈</td>
+          <td>in</td>
+          <td>\le</td>
+          <td id="in"></td>
+        </tr>
+        <tr>
+          <td>∉</td>
+          <td>!in</td>
+          <td>\notin</td>
+          <td id="nin"></td>
+        </tr>
+        <tr>
+          <td>⊂</td>
+          <td>sub</td>
+          <td>\subset</td>
+          <td id="sub"></td>
+        </tr>
+        <tr>
+          <td>⊃</td>
+          <td>sup</td>
+          <td>\supset</td>
+          <td id="sup"></td>
+        </tr>
+        <tr>
+          <td>⊃</td>
+          <td>sup</td>
+          <td>\supset</td>
+          <td id="sup"></td>
+        </tr>
+        <tr>
+          <td>⊃</td>
+          <td>sup</td>
+          <td>\supset</td>
+          <td id="sup"></td>
+        </tr>
+        <tr>
+          <td>≤</td>
+          <td>==</td>
+          <td>\le</td>
+          <td id="le"></td>
+        </tr>
+        <tr>
+          <td>≥</td>
+          <td>>-</td>
+          <td>\ge</td>
+          <td id="ge"></td>
+        </tr>
+        <tr>
+          <td>≠</td>
+          <td>!=</td>
+          <td>\ne</td>
+          <td id="ne"></td>
+        </tr>
+        <tr>
+          <td>→</td>
+          <td>rarr</td>
+          <td>\rightarrow</td>
+          <td id="ra"></td>
+        </tr>
+        <tr>
+          <td>↔︎</td>
+          <td>harr</td>
+          <td>\leftrightarrow</td>
+          <td id="lra"></td>
+        </tr>
       </tbody>
     </table>
 
     </div>
     
+
+
     <div id="help">
 
       <h3>Introduction</h3>
@@ -207,7 +494,65 @@ window.MathJax = {
 
     </div>
   
+<div id="char">
+<button onclick="insertTextAtCursor('⊂')" class="dark-char-button">⊂</button>
+<button onclick="insertTextAtCursor('⊃')" class="dark-char-button">⊃</button>
+<button onclick="insertTextAtCursor('⋃')" class="dark-char-button">⋃</button>
+<button onclick="insertTextAtCursor('⋂')" class="dark-char-button">⋂</button>
+<button onclick="insertTextAtCursor('∈')" class="dark-char-button">∈</button>
+<button onclick="insertTextAtCursor('≤')" class="dark-char-button">≤</button>
+<button onclick="insertTextAtCursor('≥')" class="dark-char-button">≥</button>
+<button onclick="insertTextAtCursor('≠')" class="dark-char-button">≠</button>
+<button onclick="insertTextAtCursor('∃')" class="dark-char-button">∃</button>
+<button onclick="insertTextAtCursor('∄')" class="dark-char-button">∄</button>
+<button onclick="insertTextAtCursor('∴')" class="dark-char-button">∴</button>
+<button onclick="insertTextAtCursor('∆')" class="dark-char-button">∆</button>
+<button onclick="insertTextAtCursor('↦')" class="dark-char-button">↦</button>
+<button onclick="insertTextAtCursor('↔︎')" class="dark-char-button">↔︎</button>
+<button onclick="insertTextAtCursor('∧')" class="dark-char-button">∧</button>
+<button onclick="insertTextAtCursor('∫')" class="dark-char-button">∫</button>
+<button onclick="insertTextAtCursor('ℂ')" class="dark-char-button">ℂ</button>
+<button onclick="insertTextAtCursor('ℝ')" class="dark-char-button">ℝ</button>
+<button onclick="insertTextAtCursor('ℤ')" class="dark-char-button">ℤ</button>
+<button onclick="insertTextAtCursor('𝜀')" class="dark-char-button">𝜀</button>
+<button onclick="insertTextAtCursor('𝜉')" class="dark-char-button">𝜉</button>
+<button onclick="insertTextAtCursor('𝜃')" class="dark-char-button">𝜃</button>
+<button onclick="insertTextAtCursor('𝛼')" class="dark-char-button">𝛼</button>
+<button onclick="insertTextAtCursor('𝛾')" class="dark-char-button">𝛾</button>
+<button onclick="insertTextAtCursor('𝜆')" class="dark-char-button">𝜆</button>
+<button onclick="insertTextAtCursor('𝜇')" class="dark-char-button">𝜇</button>
+<button onclick="insertTextAtCursor('𝜌')" class="dark-char-button">𝜌</button>
+<button onclick="insertTextAtCursor('⊄')" class="dark-char-button">⊄</button>
+<button onclick="insertTextAtCursor('⊅')" class="dark-char-button">⊅</button>
+<button onclick="insertTextAtCursor('∑')" class="dark-char-button">∑</button>
+<button onclick="insertTextAtCursor('∏')" class="dark-char-button">∏</button>
+<button onclick="insertTextAtCursor('∉')" class="dark-char-button">∉</button>
+<button onclick="insertTextAtCursor('≮')" class="dark-char-button">≮</button>
+<button onclick="insertTextAtCursor('≯')" class="dark-char-button">≯</button>
+<button onclick="insertTextAtCursor('÷')" class="dark-char-button">÷</button>
+<button onclick="insertTextAtCursor('∀')" class="dark-char-button">∀</button>
+<button onclick="insertTextAtCursor('∅')" class="dark-char-button">∅</button>
+<button onclick="insertTextAtCursor('∵')" class="dark-char-button">∵</button>
+<button onclick="insertTextAtCursor('𝗖')" class="dark-char-button">𝗖</button>
+<button onclick="insertTextAtCursor('⇒')" class="dark-char-button">⇒</button>
+<button onclick="insertTextAtCursor('±')" class="dark-char-button">±</button>
+<button onclick="insertTextAtCursor('∨')" class="dark-char-button">∨</button>
+<button onclick="insertTextAtCursor('∞')" class="dark-char-button">∞</button>
+<button onclick="insertTextAtCursor('𝑖')" class="dark-char-button">𝑖</button>
+<button onclick="insertTextAtCursor('ℚ')" class="dark-char-button">ℚ</button>
+<button onclick="insertTextAtCursor('ℕ')" class="dark-char-button">ℕ</button>
+<button onclick="insertTextAtCursor('𝜋')" class="dark-char-button">𝜋</button>
+<button onclick="insertTextAtCursor('𝜂')" class="dark-char-button">𝜂</button>
+<button onclick="insertTextAtCursor('𝛿')" class="dark-char-button">𝛿</button>
+<button onclick="insertTextAtCursor('𝛽')" class="dark-char-button">𝛽</button>
+<button onclick="insertTextAtCursor('𝜏')" class="dark-char-button">𝜏</button>
+<button onclick="insertTextAtCursor('𝜒')" class="dark-char-button">𝜒</button>
+<button onclick="insertTextAtCursor('𝜎')" class="dark-char-button">𝜎</button>
+<button onclick="insertTextAtCursor('𝜕')" class="dark-char-button">𝜕</button>
+</div>
+
   </div>
+
 </main>
 <input type="file" style="display:none;" id="import-file" name="file"/>
 <script>
