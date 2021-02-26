@@ -204,7 +204,7 @@ function getContent(){
 function char(){
       if (document.getElementById("char").style.display == "flex"){ 
             document.getElementById("char").style.display = "none";
-            document.getElementById("main-screen").style.gridTemplateAreas = '"A A A A"';
+            document.getElementById("main-screen").style.gridTemplateAreas = '"A A A A" ';
       } else {
             document.getElementById("char").style.display = "flex";
             document.getElementById("main-screen").style.gridTemplateAreas = '"A A A A" "char char char char"';
@@ -234,11 +234,11 @@ function preview(){
       document.getElementById("shortcut-button").className = "button bt-inactive";
       document.getElementById("help-button").className = "button bt-inactive";
 
-      document.getElementById("main-screen").style.gridTemplateAreas = 'B B B B"';
+      document.getElementById("main-screen").style.gridTemplateAreas = '"B B B B"';
       document.getElementById("editor").style.display = "none";
       document.getElementById("preview").style.display = "block";
       document.getElementById("shortcut").style.display = "none";
-      document.getElementById("help").style.display = "none";     
+      document.getElementById("help").style.display = "none";    
 
       getContent();
 }
