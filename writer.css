@@ -43,6 +43,12 @@
 	}
 }
 
+@media screen and (max-width: 800px) {
+	#char {
+		width: 360px !important;
+	}
+}
+
 
 html {
 	font-family: 'Stix Two Text', 'Stix Two Math Regular', Serif;
@@ -113,7 +119,7 @@ w {
   	cursor: pointer;
 }
 
-.bt-inactive, .dark-char-button:hover {
+.bt-inactive {
 	background-color: white;
 	color: #1976D2;
 }
@@ -129,33 +135,25 @@ w {
 	color: white;
 }
 
-.light-char-button {
-	text-align: center;
-	display: flex;
-	justify-content: center;
-  	align-items: center;
-  	border-radius: 4px;
-  	border: 1px solid #1976D2;
-  	cursor: pointer;
-  	padding: 4px;
-  	background-color: white;
-  	color: black;
-  	font-size: 1.5rem;
-}
-
 .dark-char-button {
 	text-align: center;
 	display: flex;
 	justify-content: center;
   	align-items: center;
   	border-radius: 4px;
-  	border: 1px solid #1976D2;
+  	border: 1px solid rgb(200,203,207); /* 220,224,226 */
   	cursor: pointer;
-	background-color: #1976D2;
-	color: white;
-	padding: 4px;
-	font-size: 1.5rem;
+	background-color: rgb(200,203,207); /* 200 203 207 */
+	color: black;
+	padding: 4px !important;
+	margin: 4px !important;
+	font-size: 1.25rem;
 
+}
+
+.dark-char-button:hover {
+	background-color: rgb(220,224,226);
+	color:#1976D2;
 }
 
 
@@ -247,8 +245,10 @@ main {
 
 
 #tinymce {
-  background-color: #FFEFD5 !important; 
-  padding: 10px !important;
+  background-color: #FFEFD5 !important;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px !important;
 }
 
 #char {
@@ -258,8 +258,10 @@ main {
 	align-items: stretch;
 	flex-wrap: wrap;
 	flex-direction: row;
-	width: 800px;
 	margin: 0 auto;
+	width: 720px;
+	padding: 20px;
+	border: 1px solid black;
 }
 
 #preview {
