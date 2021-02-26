@@ -109,113 +109,158 @@ document.getElementById('import-file').click();
   init_instance_callback: function (editor) {
     
     editor.shortcuts.add(
-      'ctrl+shift+e', 'Inserts for ctrl+shift+e', function () {
+      'ctrl+shift+69', 'Inserts for ctrl+shift+e', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '∈');
     });
  
      editor.shortcuts.add(
-      'ctrl+alt+e', 'Inserts for ctrl+alt+e', function () {
+      'ctrl+alt+69', 'Inserts for ctrl+alt+e', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '∉');
     });
     
      editor.shortcuts.add(
-      'ctrl+shift+c', 'Inserts for ctrl+shift+c', function () {
+      'ctrl+shift+67', 'Inserts for ctrl+shift+c', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '⊂');
     });
 
      editor.shortcuts.add(
-      'ctrl+alt+c', 'Inserts for ctrl+alt+c', function () {
+      'ctrl+alt+67', 'Inserts for ctrl+alt+c', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '⊃');
     });
 
     editor.shortcuts.add(
-      'ctrl+shift+u', 'Inserts for ctrl+shift+u', function () {
+      'ctrl+shift+85', 'Inserts for ctrl+shift+u', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '⋃');
     });
 
     editor.shortcuts.add(
-      'ctrl+shift+i', 'Inserts for ctrl+shift+i', function () {
+      'ctrl+shift+73', 'Inserts for ctrl+shift+i', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '⋂');
     });
 
     editor.shortcuts.add(
-      'ctrl+shift+0', 'Inserts for ctrl+shift+0', function () {
+      'ctrl+shift+48', 'Inserts for ctrl+shift+0', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '∅');
     });
 
 
 
     editor.shortcuts.add(
-      'ctrl+shift+a', 'Inserts for ctrl+shift+a', function () {
+      'ctrl+shift+65', 'Inserts for ctrl+shift+a', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '⋀');
     });
 
     editor.shortcuts.add(
-      'ctrl+shift+o', 'Inserts for ctrl+shift+o', function () {
+      'ctrl+shift+79', 'Inserts for ctrl+shift+o', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '⋁');
     });
 
     editor.shortcuts.add(
-      'ctrl+shift+n', 'Inserts for ctrl+shift+n', function () {
+      'ctrl+shift+78', 'Inserts for ctrl+shift+n', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '¬');
     });
 
     editor.shortcuts.add(
-      'ctrl+shift+x', 'Inserts for ctrl+shift+x', function () {
+      'ctrl+shift+88', 'Inserts for ctrl+shift+x', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '∃');
     });
 
     editor.shortcuts.add(
-      'ctrl+alt+x', 'Inserts for ctrl+alt+x', function () {
+      'ctrl+alt+88', 'Inserts for ctrl+alt+x', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '∄');
     });
 
     editor.shortcuts.add(
-      'ctrl+alt+a', 'Inserts for ctrl+alt+a', function () {
+      'ctrl+alt+65', 'Inserts for ctrl+alt+a', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '∀');
     });
 
     editor.shortcuts.add(
-      'ctrl+shift+t', 'Inserts for ctrl+shift+t', function () {
+      'ctrl+shift+84', 'Inserts for ctrl+shift+t', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '∴');
     });
 
     editor.shortcuts.add(
-      'ctrl+shift+b', 'Inserts for ctrl+shift+b', function () {
+      'ctrl+shift+66', 'Inserts for ctrl+shift+b', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '∵');
     });
 
 
 
     editor.shortcuts.add(
-      'ctrl+shift+<', 'Inserts for ctrl+shift+,', function () {
+      'ctrl+shift+188', 'Inserts for ctrl+shift+,', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '≤');
     });
 
     editor.shortcuts.add(
-      'ctrl+shift+.', 'Inserts for ctrl+shift+.', function () {
+      'ctrl+shift+190', 'Inserts for ctrl+shift+.', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '≥');
     });
 
     editor.shortcuts.add(
-      'ctrl+shift+=', 'Inserts for ctrl+shift+=', function () {
+      'ctrl+shift+187', 'Inserts for ctrl+shift+=', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '≠');
     });
 
     editor.shortcuts.add(
-      'ctrl+shift+-', 'Inserts for ctrl+shift+-', function () {
+      'ctrl+shift+189', 'Inserts for ctrl+shift+-', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '±');
     });
 
     editor.shortcuts.add(
-      'ctrl+alt+>', 'Inserts for ctrl+alt+>', function () {
+      'ctrl+alt+190', 'Inserts for ctrl+alt+>', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '→');
     });
 
     editor.shortcuts.add(
-      'ctrl+alt+<', 'Inserts for ctrl+alt+<', function () {
+      'ctrl+alt+188', 'Inserts for ctrl+alt+<', function () {
       tinymce.activeEditor.execCommand('mceInsertContent', false, '↔︎');
     });
+
+
+
+    editor.shortcuts.add(
+      'ctrl+shift+83', 'Inserts for ctrl+shift+s', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, '∑');
+    });
+
+    editor.shortcuts.add(
+      'ctrl+shift+80', 'Inserts for ctrl+shift+p', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, '∏');
+    });
+
+    editor.shortcuts.add(
+      'ctrl+shift+86', 'Inserts for ctrl+shift+v', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, '∂');
+    });
+
+    editor.shortcuts.add(
+      'ctrl+shift+68', 'Inserts for ctrl+shift+d', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, '∆');
+    });
+
+    editor.shortcuts.add(
+      'ctrl+alt+68', 'Inserts for ctrl+alt+d', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, 'δ');
+    });
+
+    editor.shortcuts.add(
+      'ctrl+alt+73', 'Inserts for ctrl+alt+i', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, '∫');
+    });
+
+    editor.shortcuts.add(
+      'ctrl+alt+84', 'Inserts for ctrl+alt+t', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, 'θ');
+    });
+
+    editor.shortcuts.add(
+      'ctrl+alt+80', 'Inserts for ctrl+alt+p', function () {
+      tinymce.activeEditor.execCommand('mceInsertContent', false, 'π');
+    });
+
+
+
 
 }
 
