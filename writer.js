@@ -50,7 +50,7 @@ var dfreeBodyConfig = {
   statusbar: false,
   menubar: false,
   inline: false,
-  toolbar: 'charmap | bold italic underline | styleselect forecolor | table link | numlist bullist | removeformat undo redo | searchreplace | mycharmap | importHTML exportHTML | help code fullscreen',
+  toolbar: 'mycharmap | bold italic underline | styleselect forecolor | table link | numlist bullist | removeformat undo redo searchreplace | charmap | importHTML exportHTML | help code fullscreen',
   plugins: ['quickbars', 'textpattern', 'lists', 'paste', 'autoresize', 'code', 'link', 'table', 'searchreplace', 'charmap', 'fullscreen', 'help'],
   paste_as_text: true,
   entity_encoding: 'raw',
@@ -77,7 +77,7 @@ var dfreeBodyConfig = {
   contextmenu: 'undo redo | inserttable | cell row column deletetable | help',
       setup: function (editor) {
     editor.ui.registry.addToggleButton('mycharmap', {
-      text: 'Char Map',
+      text: 'Σ',
       onAction: function (api) {
         char();
         api.setActive(!api.isActive());
