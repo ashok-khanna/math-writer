@@ -43,9 +43,17 @@
 	}
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
 	#char {
 		width: 360px !important;
+	}
+
+	#text {
+		display: none !important;
+	}
+
+	#tinymce {
+		max-width: 80% !important;
 	}
 }
 
