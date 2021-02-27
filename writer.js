@@ -363,10 +363,6 @@ function myEditor(){
       document.getElementById("shortcuts").style.display = "none";
       document.getElementById("help").style.display = "none";
 
-      // Put focus to Editor, but at the end of the text:
-      tinyMCE.activeEditor.selection.select(tinyMCE.activeEditor.getBody(), true);
-      tinyMCE.activeEditor.selection.collapse(false);
-
       //Add Char Map if its meant to be active
       if (charActive) {
             document.getElementById("char").style.display = "flex";
