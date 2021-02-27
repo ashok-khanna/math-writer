@@ -66,6 +66,7 @@ html {
 	font-size: 100%;
 	-webkit-font-smoothing: antialiased;
   	-moz-osx-font-smoothing: grayscale;
+  	background-color: #f6f6ef;
 }
 
 body { margin: 0px; font-family: 'Stix Two Text', 'Stix Two Math Regular', Serif; }
@@ -256,7 +257,7 @@ to toggle each of these four views */
 how the padding-top and padding-bottom work here
 as I was getting some strange results */
 #tinymce {
-  background-color: #FFEFD5;
+  background-color: #DDDDD6;
   min-height: 200px !important;
   padding-top: 5px;
   padding-bottom: 5px;
