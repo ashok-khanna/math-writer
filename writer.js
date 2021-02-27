@@ -86,7 +86,7 @@ var dfreeBodyConfig = {
   contextmenu: 'undo redo | inserttable | cell row column deletetable | help',
       setup: function (editor) {
     editor.ui.registry.addToggleButton('mycharmap', {
-      text: 'Σ',
+      text: 'Char Map',
       onAction: function (api) {
         char();
         api.setActive(!api.isActive());
