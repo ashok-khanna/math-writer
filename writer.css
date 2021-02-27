@@ -104,8 +104,7 @@ mark {
 /* Custom styling for <mark-grey> tag. Allows us to create the nice
 buttons for keyboard shortcuts */
 mark-grey {
-	color: black;
-	font-weight: bold;
+	color: #268bd2;
 }
 
 /* Adding our theme blue color to the MathJax recommended code in the Read Me */
