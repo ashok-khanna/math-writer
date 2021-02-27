@@ -311,7 +311,7 @@ function editor(){
       document.getElementById("main-screen").style.gridTemplateAreas = '"A A A A"';
       document.getElementById("editor").style.display = "block";
       document.getElementById("preview").style.display = "none";
-      document.getElementById("shortcut").style.display = "none";
+      document.getElementById("shortcuts").style.display = "none";
       document.getElementById("help").style.display = "none";
 
       tinyMCE.activeEditor.selection.select(tinyMCE.activeEditor.getBody(), true);
@@ -327,7 +327,7 @@ function preview(){
       document.getElementById("main-screen").style.gridTemplateAreas = '"B B B B"';
       document.getElementById("editor").style.display = "none";
       document.getElementById("preview").style.display = "block";
-      document.getElementById("shortcut").style.display = "none";
+      document.getElementById("shortcuts").style.display = "none";
       document.getElementById("help").style.display = "none";    
 
       getContent();
@@ -342,7 +342,7 @@ function shortcuts(){
       document.getElementById("main-screen").style.gridTemplateAreas = '"C C C C"';
       document.getElementById("editor").style.display = "none";
       document.getElementById("preview").style.display = "none";
-      document.getElementById("shortcut").style.display = "block";
+      document.getElementById("shortcuts").style.display = "block";
       document.getElementById("help").style.display = "none";     
 }
 
@@ -355,7 +355,7 @@ function help(){
       document.getElementById("main-screen").style.gridTemplateAreas = '"D D D D"';
       document.getElementById("editor").style.display = "none";
       document.getElementById("preview").style.display = "none";
-      document.getElementById("shortcut").style.display = "none";
+      document.getElementById("shortcuts").style.display = "none";
       document.getElementById("help").style.display = "block";     
 }
 

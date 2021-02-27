@@ -12,22 +12,21 @@
   <!-- Primary Style Sheet -->
 	<link rel="stylesheet" type="text/css" href="writer.css">
 
-  <!-- TinyMCE is the Rich Text Editor used on this website -->
+  <!-- Load TinyMCE, the Rich Text Editor used on this website -->
 	<script src="tinymce/tinymce.min.js" referrerpolicy="origin"></script>
 
   <!-- Primary JavaScript file. Note that we load this after TinyMCE as we will make configurations here -->
   <script src="writer.js" referrerpolicy="origin"></script>
 
-  <!-- Load jQuery. We use this -->
-  <script src="jquery-3.5.1.min.js" referrerpolicy="origin"></script>
+  <!-- Script for adding view on GitHub & GitHub Stars to the header -->
   <script src="https://buttons.github.io/buttons.js"></script>
+
+  <!-- MathJax Configuration Settings -->
   <script>
-window.MathJax = {
-  loader: {load: ['[tex]/ams']},
-  tex: {packages: {'[+]': ['ams']}},
-    "fast-preview": {
-                disabled: true
-        },
+  window.MathJax = {
+    loader: { load: ['[tex]/ams'] },
+    tex: { packages: {'[+]': ['ams']} },
+    "fast-preview": { disabled: true },
     extensions: ["tex2jax.js", "asciimath2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noErrors.js"],
     jax: ["input/TeX", "input/AsciiMath", "output/HTML-CSS"],
     displayAlign: "left",
@@ -36,17 +35,20 @@ window.MathJax = {
       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
       processEscapes: true
     }, 
-    asciimath2jax: {
-      delimiters: [['`','`']],
-      preview: [""]},
-      "HTML-CSS": { fonts: ["STIX"] }
+    asciimath2jax: { delimiters: [['`','`']], preview: [""]},
+    "HTML-CSS": { fonts: ["STIX"] }
   }
   </script>
-<script type="text/javascript" sync
-  src="MathJax-2.7.7/MathJax.js">
-</script>
-<script data-ad-client="ca-pub-8786835491516142" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
+  <!-- Load MathJax for rendering Math. Configuration settings are above -->
+  <!-- Note we use MathJax 2.7.7 and not the latest because we want to customise our font to STIX -->
+  <script type="text/javascript" sync src="MathJax-2.7.7/MathJax.js"></script>
+
+  <!-- Google Adsense & Analytics -->
+  <script data-ad-client="ca-pub-8786835491516142" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+    </script>
 </head>
+
 <body>
 <main id="main">
 <div id="github"><a class="github-button" href="https://github.com/ashok-khanna/math-writer" data-color-scheme="no-preference: light; light: light; dark: light;" data-size="large" aria-label="Use this template ashok-khanna/ashok-khanna.github.io on GitHub">View on GitHub</a></div>
@@ -64,247 +66,9 @@ window.MathJax = {
     <div id="main-screen"><div id="editor">
     <div id="tinymce" contenteditable="true" spellcheck="false"></div></div>
     <div id="preview">`sum_(i=1)^n i^3=((n(n+1))/2)^2`</div>
-    <div id="shortcut">
+  
 
-    <h3>Set Operators</h3>
-
-    <table class="shortcut-table">
-      <thead>
-        <tr>
-          <th>Symbol</th>
-          <th>AsciiMath</th>
-          <th>LaTex</th>
-          <th>Shortcut</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>∈</td>
-          <td>in</td>
-          <td>\in</td>
-          <td id="in">Ctrl + Shift + E</td>
-        </tr>
-        <tr>
-          <td>∉</td>
-          <td>!in</td>
-          <td>\notin</td>
-          <td id="nin">Ctrl + Alt + E</td>
-        </tr>
-        <tr>
-          <td>⊂</td>
-          <td>sub</td>
-          <td>\subset</td>
-          <td id="sub">Ctrl + Shift + C</td>
-        </tr>
-        <tr>
-          <td>⊃</td>
-          <td>sup</td>
-          <td>\supset</td>
-          <td id="sup">Ctrl + Alt + C</td>
-        </tr>
-        <tr>
-          <td>⋃</td>
-          <td>uu</td>
-          <td>\cup</td>
-          <td id="cup">Ctrl + Shift + U</td>
-        </tr>
-        <tr>
-          <td>⋂</td>
-          <td>nn</td>
-          <td>\cap</td>
-          <td id="cap">Ctrl + Shift + I</td>
-        </tr>
-        <tr>
-          <td>∅</td>
-          <td>O/</td>
-          <td>\emptyset</td>
-          <td id="empty">Ctrl + Shift + 0</td>
-        </tr>
-      </tbody>
-    </table>
-
-  <h3>Logic Operators</h3>
-
-    <table class="shortcut-table">
-      <thead>
-        <tr>
-          <th>Symbol</th>
-          <th>AsciiMath</th>
-          <th>LaTex</th>
-          <th>Shortcut</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>⋀</td>
-          <td>and</td>
-          <td>\land</td>
-          <td id="land">Ctrl + Shift + A</td>
-        </tr>
-        <tr>
-          <td>⋁</td>
-          <td>or</td>
-          <td>\lor</td>
-          <td id="lor">Ctrl + Shift + O</td>
-        </tr>
-        <tr>
-          <td>¬</td>
-          <td>not</td>
-          <td>\lnot</td>
-          <td id="lnot">Ctrl + Shift + N</td>
-        </tr>
-        <tr>
-          <td>∃</td>
-          <td>EE</td>
-          <td>\exists</td>
-          <td id="exists">Ctrl + Shift + X</td>
-        </tr>
-        <tr>
-          <td>∄</td>
-          <td></td>
-          <td>\nexists</td>
-          <td id="nexists">Ctrl + Alt + X</td>
-        </tr>
-        <tr>
-          <td>∀</td>
-          <td>AA</td>
-          <td>\forall</td>
-          <td id="forall">Ctrl + Alt + A</td>
-        </tr>
-        <tr>
-          <td>∴</td>
-          <td>:.</td>
-          <td>\therefore</td>
-          <td id="therefore">Ctrl + Shift + T</td>
-        </tr>
-        <tr>
-          <td>∵</td>
-          <td>:'</td>
-          <td>\because</td>
-          <td id="because">Ctrl + Shift + B</td>
-        </tr>
-      </tbody>
-    </table>
-
-  <h3>Relationship Operators</h3>
-
-    <table class="shortcut-table">
-      <thead>
-        <tr>
-          <th>Symbol</th>
-          <th>AsciiMath</th>
-          <th>LaTex</th>
-          <th>Shortcut</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>≤</td>
-          <td><=</td>
-          <td>\le</td>
-          <td id="le">Ctrl + Shift + <</td>
-        </tr>
-        <tr>
-          <td>≥</td>
-          <td>>=</td>
-          <td>\ge</td>
-          <td id="ge">Ctrl + Shift + ></td>
-        </tr>
-        <tr>
-          <td>≠</td>
-          <td>!=</td>
-          <td>\ne</td>
-          <td id="ne">Ctrl + Shift + =</td>
-        </tr>
-        <tr>
-          <td>±</td>
-          <td>+-</td>
-          <td>\pm</td>
-          <td id="pm">Ctrl + Shift + -</td>
-        </tr>
-        <tr>
-          <td>→</td>
-          <td>rarr</td>
-          <td>\rightarrow</td>
-          <td id="ra">Ctrl + Alt + ></td>
-        </tr>
-        <tr>
-          <td>↔︎</td>
-          <td>harr</td>
-          <td>\leftrightarrow</td>
-          <td id="lra">Ctrl + Alt + <</td>
-        </tr>
-      </tbody>
-    </table>
-
-  <h3>Arithmetic Operators & Letters</h3>
-
-    <table class="shortcut-table">
-      <thead>
-        <tr>
-          <th>Symbol</th>
-          <th>AsciiMath</th>
-          <th>LaTex</th>
-          <th>Shortcut</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>∑</td>
-          <td>sum</td>
-          <td>\sum</td>
-          <td id="sum">Ctrl + Shift + S</td>
-        </tr>
-        <tr>
-          <td>∏</td>
-          <td>prod</td>
-          <td>\prod</td>
-          <td id="prod">Ctrl + Shift + P</td>
-        </tr>
-        <tr>
-          <td>∂</td>
-          <td>partial</td>
-          <td>\partial</td>
-          <td id="partial">Ctrl + Shift + V</td>
-        </tr>
-        <tr>
-          <td>∆</td>
-          <td>Delta</td>
-          <td>\Delta</td>
-          <td id="Delta">Ctrl + Shift + D</td>
-        </tr>
-        <tr>
-          <td>δ</td>
-          <td>delta</td>
-          <td>\delta</td>
-          <td id="delta">Ctrl + Alt + D</td>
-        </tr>
-        <tr>
-          <td>∫</td>
-          <td>int</td>
-          <td>\int</td>
-          <td id="int">Ctrl + Alt + I</td>
-        </tr>
-        <tr>
-        <tr>
-          <td>θ</td>
-          <td>theta</td>
-          <td>\theta</td>
-          <td id="theta">Ctrl + Alt + T</td>
-        </tr> 
-        <tr>
-          <td>π</td>
-          <td>pi</td>
-          <td>\pi</td>
-          <td id="pi">Ctrl + Alt + P</td>
-        </tr>
-      </tbody>
-    </table>
-
-    </div>
-    
-
-
+  <div id="shortcuts"></div>
   <div id="help"></div>
 
 <!-- Character Matrix for Insertion into Editor -->
@@ -365,7 +129,12 @@ window.MathJax = {
 </div>
 
 </main>
+
+<!-- We need this hidden file input button to be able to import files -->
+<!-- We will programatically click it on behalf of the user -->
 <input type="file" style="display:none;" id="import-file" name="file"/>
+
+
 <script>
   document.getElementById('import-file').addEventListener('change', readSingleFile, false);
   document.getElementById("tinymce").focus();
@@ -381,6 +150,16 @@ window.MathJax = {
 
   request.send();
 
+  var request = new XMLHttpRequest();
+  request.open('GET', '/shortcuts.html', true);
+  request.onload = function() {
+  if (request.status >= 200 && request.status < 400) {
+      var resp = request.responseText;
+      document.querySelector('#shortcuts').innerHTML = resp;
+    }
+  };
+
+  request.send();
 </script>
 </body>
 </html>

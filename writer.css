@@ -278,7 +278,7 @@ main {
 	display: none;
 }
 
-#shortcut {
+#shortcuts {
 	grid-area: C;
 	display: none;
 }
