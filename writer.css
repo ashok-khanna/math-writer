@@ -1,3 +1,5 @@
+/* We load the stix fonts here. https://www.stixfonts.org/ */
+
 @font-face {
 	font-family: 'STIX Two Math Regular';
 	src: url('fonts/STIXTwoMath-Regular.woff2') format('woff2');
@@ -31,6 +33,8 @@
 	font-style: italic;
 }
 
+/* For the Print Style Sheet, we only want to show the preview
+page, so all other pages are hidden */
 @media print { 
 	#github, #star, #text, #top-gutter, #second-gutter, #editor-button,
 #preview-button, #char-button, #help-button, #third-gutter, #char {
@@ -38,15 +42,12 @@
 	}
 }
 
+/* For smaller screens, making some adjustments to make
+the content fit better */
 @media screen and (max-width: 1000px) {
-	#text {
-		display: none !important;
-	}
-
-	.button {
-		font-size: 0.9rem !important;
-	}
-
+	#text { display: none !important; }
+	.button { font-size: 0.9rem !important;	}
+	table { width: 90% !important; font-size: 0.8rem !important; }
 	main {
 		grid-template-areas:
 		"github github star star"
@@ -54,15 +55,9 @@
 		"second-gutter second-gutter second-gutter second-gutter"
 		"editor-button preview-button shortcut-button help-button"
 		"third-gutter third-gutter third-gutter third-gutter"
-		"main-screen main-screen main-screen main-screen"
-		"char char char char" !important;
-	}
-
-	table {
-		width: 90% !important;
+		"main-screen main-screen main-screen main-screen" !important;
 	}
 }
-
 
 html {
 	font-family: 'Stix Two Text', 'Stix Two Math Regular', Serif;
@@ -78,20 +73,23 @@ body {
 	font-family: 'Stix Two Text', 'Stix Two Math Regular', Serif;
 }
 
+/* Generic Table formatting */
 table {
-	  border: 1px solid black;
-	  border-collapse: collapse;
-	  width: 75%;
-	  text-align: left;
-	  table-layout: fixed;
-
+	border: 1px solid black;
+	border-collapse: collapse;
+	width: 75%;
+	text-align: left;
+	table-layout: fixed;
 }
 
+/* Add black border to all table cells */
 th, td {
 	border: 1px solid black;
 	padding: 10px;
 }
 
+/* Custom styling for <mark> tag. Allows us to create the nice
+"Editor Tab", "Preview Tab", etc. tags in the Read Me */
 mark {
 	color: white;
 	font-weight: bold;
@@ -105,23 +103,28 @@ mark {
 	cursor: pointer;
 }
 
+/* Adding our theme blue color to the MathJax recommended code in the Read Me */
 code {
 	color: #1976D2;
 }
 
-/* Custom HTML tag for quickly typing blue text */
+/* Custom HTML tag for quickly typing blue text in the Read Me */
 w {
 	color: blue;
 }
 
+/* To dynamically (automatically) adjust the row / column size 
+for our tables in the Read Me */
 .table-tutorial {
 	table-layout: auto;
 }
 
+/* Center the column headers for our shortcuts table */
 .shortcut-table {
 	text-align: center;
 }
 
+/* Styling for the four navigation buttons (Editor, Preview, Shortcuts, Read Me) */
 .button {
 	text-align: center;
 	display: flex;
@@ -132,31 +135,35 @@ w {
   	cursor: pointer;
 }
 
+/* Color of navigation buttons when active */
+.bt-active {
+	background-color: #1976D2;
+	color: white;
+}
+
+/* Color of navigation buttons when not active */
 .bt-inactive {
 	background-color: white;
 	color: #1976D2;
 }
 
+/* Color on However of navigation buttons when not active */
 .bt-inactive:hover {
 	background-color: #97C0EA;
 	border: 1px solid #1976D2;
 	color: white;
 }
 
-.bt-active, .light-char-button:hover {
-	background-color: #1976D2;
-	color: white;
-}
-
+/* Styloing for buttons in Char Map */
 .dark-char-button {
 	text-align: center;
 	display: flex;
 	justify-content: center;
   	align-items: center;
   	border-radius: 4px;
-  	border: 1px solid rgb(200,203,207); /* 220,224,226 */
+  	border: 1px solid rgb(200,203,207);
   	cursor: pointer;
-	background-color: rgb(200,203,207); /* 200 203 207 */
+	background-color: rgb(200,203,207);
 	color: black;
 	padding: 4px !important;
 	margin: 4px !important;
@@ -164,20 +171,19 @@ w {
 
 }
 
+/* Styling for buttons in Char Map when hovered */
 .dark-char-button:hover {
 	background-color: rgb(220,224,226);
 	color:#1976D2;
 }
 
 
-
-/* Layout - Main Page */
-
+/* CSS Grid Layout for Main Container */
 main {
 	margin: 26px;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-template-rows: auto 1rem 1rem 2rem 1rem 1rem auto auto;
+	grid-template-rows: auto 1rem 1rem 2rem 1rem 1rem auto;
 	grid-column-gap: 2.5vw;
 	grid-template-areas:
 		"github star text text"
@@ -185,18 +191,10 @@ main {
 		"second-gutter second-gutter second-gutter second-gutter"
 		"editor-button preview-button shortcut-button help-button"
 		"third-gutter third-gutter third-gutter third-gutter"
-		"main-screen main-screen main-screen main-screen"
-		"char char char char";
+		"main-screen main-screen main-screen main-screen";
 }
 
-#text {
-	grid-area: text;
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-	font-family: monospace;
-}
-
+/* Styling for View on GitHub Button and attaching to CSS Grid*/
 #github {
 	grid-area: github;
 	display: flex;
@@ -204,6 +202,7 @@ main {
 	align-items: center;
 }
 
+/* Styling for GitHub Stars Button and attaching to CSS Grid */
 #star {
 	grid-area: star;
 	text-align: left;
@@ -212,35 +211,31 @@ main {
 	align-items: center;
 }
 
+/* Styling for "https://writer.math.dev" logo and attaching to CSS Grid */
+#text {
+	grid-area: text;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	font-family: monospace;
+}
+
+/* Attaching gutters to the grid and bottom border on top gutter */
 #top-gutter {
 	grid-area: top-gutter;
 	border-bottom: solid 1px #dedede;
 }
+#second-gutter { grid-area: second-gutter; }
+#third-gutter {	grid-area: third-gutter; }
 
-#second-gutter {
-	grid-area: second-gutter;
-}
+/* Attaching navigation buttons to the CSS grid */
+#editor-button { grid-area: editor-button; }
+#preview-button { grid-area: preview-button; }
+#shortcut-button { grid-area: shortcut-button; }
+#help-button { grid-area: help-button; }
 
-#editor-button {
-	grid-area: editor-button;
-}
-
-#preview-button {
-	grid-area: preview-button;
-}
-
-#shortcut-button {
-	grid-area: shortcut-button;
-}
-
-#help-button {
-	grid-area: help-button;
-}
-
-#third-gutter {
-	grid-area: third-gutter;
-}
-
+/* Creating another CSS Grid to hold the Editor and
+Char Map. Also attaching this container to the main CSS Grid */
 #main-screen {
 	grid-area: main-screen;
 	display: grid;
@@ -249,13 +244,38 @@ main {
 	grid-template-areas: "A A A A";
 }
 
+/* Editor is visible on page load. We use JavaScript
+to toggle each of these four views  */
 #editor {
   grid-area: A;
   color: black;
   display: block;
 }
 
+/* Preview is hidden on page load. We use JavaScript
+to toggle each of these four views */
+#preview {
+	grid-area: B;
+	display: none;
+}
 
+/* Shortcuts is hidden on page load. We use JavaScript
+to toggle each of these four views */
+#shortcuts {
+	grid-area: C;
+	display: none;
+}
+
+/* Help is hidden on page load. We use JavaScript
+to toggle each of these four views */
+#help {
+	grid-area: D;
+	display: none;
+}
+
+/* Styling for TinyMCE editor. Not 100% sure on
+how the padding-top and padding-bottom work here
+as I was getting some strange results */
 #tinymce {
   background-color: #FFEFD5 !important;
   padding-top: 5px;
@@ -264,6 +284,8 @@ main {
   padding-right: 10px !important;
 }
 
+/* Styling for Character Map that is displayed
+below the editor when the 'Char Map' button is clicked. */
 #char {
 	grid-area: char;
 	display: none;
@@ -277,26 +299,11 @@ main {
 	border: 1px solid black;
 }
 
-#preview {
-	grid-area: B;
-	display: none;
-}
-
-#shortcuts {
-	grid-area: C;
-	display: none;
-}
-
-#help {
-	grid-area: D;
-	display: none;
-}
-
 /* Pushes last three buttons in TinyMCE toolbar to the right */
-
 .tox-toolbar__group:last-child { margin-left: auto!important; }
-
 
 /* Remove borders from toolbar in TinyMCE */
 .tox:not([dir=rtl]) {border:none;}
+
+/* Ensure TinyMCE editor does not overflow and also center it */
 .tox, .tox-toolbar, .tox-toolbar-primary {border: 1px; max-width: calc(100%-26px); margin: 0 auto;}
