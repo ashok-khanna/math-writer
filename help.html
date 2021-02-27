@@ -15,8 +15,16 @@
       <tbody>
         <tr>
           <td><mark onclick="editor()">Editor</mark></td>
-          <td><p>The editor tab is where you input your content, which can be text, tables, lists, and of course, mathematical input (refer notes below). The editor allows you to format non-mathematical content through the various buttons for bold, italics, underline, color changes, text styles and so on. Math input on the other hand is not rendered in the editor tab - you will see the raw code, allowing you to modify it quickly (the preview tab renders mathematical input).</p>
-          <p>There are three important buttons in the editor tab. Clicking the Char Map button on the editor allows you toggle the visiblity of a set of buttons for commonly used shortcuts. Clicking the export to HTML button allows you to copy the raw HTML markup of your content to your clipboard, allowing you to copy it into another application (refer notes below on how to create web pages from the HTML markup). Finally, the <w>&lt;&gt;</w> button allows you to quickly see the raw HTML markup, to make any edits that are not possible in the default formatted view.</p></td>
+          <td><p>The rich text editor is contained within the editor tab. You can enter can text, tables, lists, and of course, mathematical input (refer notes below). The editor allows you to format non-mathematical content through the various buttons for bold, italics, underline, color changes, text styles and so on. You can also use Markdown.</p>
+          <p>Math input on the other hand is not rendered in the editor tab - rather, you will see the raw code, allowing you to modify it quickly. The preview tab renders mathematical content.</p>
+          <p>There are four very useful buttons in the editor toolbar:</p>
+          <ul>
+            <li><mark-grey>Char Map</mark-grey> (top left of the editor toolbar): Toggles the visibility of a set of comonly used symbols that you can insert into your file</li>
+            <li><mark-grey>Import Content</mark-grey> (right end of the editor toolbar): Import html or text files stored on your computer into the editor (overriding anything that may currently be entered in the editor)</li>
+            <li><mark-grey>Export Content</mark-grey> (right end of the editor toolbar): Export the raw HTML markup of the content you have entered (e.g. to save your work or to publish into your personal website). Refer notes below if you want to re-use this content in your personal webpages</li>
+            <li><mark-grey>&lt;&gt;</mark-grey> (top right of the editor toolbar): Quickly see the raw HTML markup of your file, useful for finely editing the raw HTML markup in a way that is not possible when editing in the default formatted view. Hopefully you do not need to this ever, but the option is there</li>
+          </ul>
+            There are three important buttons in the editor tab. Clicking the Char Map button on the editor allows you toggle the visiblity of a set of buttons for commonly used shortcuts. Clicking the export to HTML button allows you to copy the raw HTML markup of your content to your clipboard, allowing you to copy it into another application (refer notes below on how to create web pages from the HTML markup). Finally, the <w>&lt;&gt;</w> button allows you to quickly see the raw HTML markup, to make any edits that are not possible in the default formatted view.</p></td>
         </tr>
         <tr>
           <td><mark onclick="preview()">Preview</mark></td>
@@ -80,7 +88,7 @@
       </tbody>
     </table>
 
-    <p>Note that the last two examples for block AsciiMath and LaTex input are complicated. I suggest avoiding AsciiMath block input as it requires you to correctly place each part of the equation into a matrix: the {: ... :} are to start a matrix, the () are for each row and the , is used to split each row into its cells. On the other hand, whilst the block latex input looks complicated, that is mostly because I squashed it all onto one line (to illustrate that line breaks are ignored). It only has a few basic rules and is a straightforward method to input multi-line equations:</p>
+    <p>Note that the last two examples for block AsciiMath and LaTex input appear convoluted. I suggest avoiding AsciiMath block input as it requires you to correctly place each part of the equation into a matrix: the {: ... :} are to start a matrix, the () are for each row and the , is used to split each row into its cells. On the other hand, whilst the block latex input looks complicated, that is mostly because I squashed it all onto one line (to illustrate that line breaks are ignored). It only has a few basic rules and is a straightforward method to input multi-line equations:</p>
     <uL><li>Equations must begin with <w>\begin{aligned}</w> and end with <w>\end{aligned}</w></li>
       <li><w>&=</w> is used for aligning the equations </li>
       <li><w>\\</w> is used to break to a new line</li>
@@ -96,10 +104,10 @@
 
     <pre><code>&lt;script>
 window.MathJax = {
-    "fast-preview": {
-                disabled: true
-        },
-    extensions: ["tex2jax.js", "asciimath2jax.js"],
+    loader: { load: ['[tex]/ams'] },
+    tex: { packages: {'[+]': ['ams']} },
+    "fast-preview": { disabled: true },
+    extensions: ["tex2jax.js", "asciimath2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noErrors.js"],
     jax: ["input/TeX", "input/AsciiMath", "output/HTML-CSS"],
     displayAlign: "left",
     tex2jax: {
@@ -107,10 +115,8 @@ window.MathJax = {
       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
       processEscapes: true
     }, 
-    asciimath2jax: {
-      delimiters: [['`','`']],
-      preview: [""]},
-      "HTML-CSS": { fonts: ["STIX"] }
+    asciimath2jax: { delimiters: [['`','`']], preview: [""]},
+    "HTML-CSS": { fonts: ["STIX"] }
   }
 &lt;/script>
 &lt;script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js">&lt;/script>
