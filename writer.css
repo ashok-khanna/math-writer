@@ -107,8 +107,8 @@ mark-grey {
 	font-weight: bold;
 	background-color: #fafafa;
 	display: inline-block;
-	padding-left: 4px;
-	padding-right: 4px;
+	padding-left: 6px;
+	padding-right: 6px;
 	border-radius: 4px;
 	min-width: 100px;
 	text-align: center;
