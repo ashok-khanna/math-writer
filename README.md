@@ -1,5 +1,5 @@
 # Math Writer: Rich Text Math Editing on the Web
-A simple web-based editor for Math (AsciiMath / Tex)
+A simple web-based rich text editor for Math (AsciiMath / Tex)
 
 Feel free to fork this repo and make any changes you prefer. Suggestions are welcome.
 
