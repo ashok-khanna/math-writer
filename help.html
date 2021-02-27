@@ -1,0 +1,109 @@
+   <h3>Introduction</h3>
+
+    <p>Thank you for visiting this page. This is a simple web-based editor for inputting mathematics, aimed for desktop users and not mobile. It utilises <a href="https://www.mathjax.org">MathJax</a> and the <a href="https://www.tiny.cloud">TinyMCE</a>, allowing you to advanced mathematical typesetting with the comforts of a powerful, bug-free rich text editor.  You can print your content (using your browsers print function) to pdf or alternatively export the HTML markup to re-use on your websites (refer ending notes below). It is the latter that is the primary motivation of this tool - to allow quick generation of mathematical content for the web.</p>
+    
+    <p>The main benefit of this app is its preset list of keyboard shortcuts to allow you to quickly input commonly used mathematical symbols and the editor's ability to mix formatted text, tables, lists and so on with mathematical content. It's not a full editor, but covers enough functionality to create reasonable quality math output, in a simple, clean design. You may be able to extend this for more advanced use cases and this is encouraged. The code for this web app is well-documented on <a href="https://github.com/ashok-khanna/ashok-khanna.github.io">GitHub</a>.</p>
+
+    <h3>The Basics</h3>
+    <table class="table-tutorial">
+      <thead>
+        <tr>
+          <th>Tab</th>
+          <th>Tutorial</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><mark onclick="editor()">Editor</mark></td>
+          <td><p>The editor tab is where you input your content, which can be text, tables, lists, and of course, mathematical input (refer notes below). The editor allows you to format non-mathematical content through the various buttons for bold, italics, underline, color changes, text styles and so on. Math input on the other hand is not rendered in the editor tab - you will see the raw code, allowing you to modify it quickly (the preview tab renders mathematical input).</p>
+          <p>There are three important buttons in the editor tab. Clicking the Char Map button on the editor allows you toggle the visiblity of a set of buttons for commonly used shortcuts. Clicking the export to HTML button allows you to copy the raw HTML markup of your content to your clipboard, allowing you to copy it into another application (refer notes below on how to create web pages from the HTML markup). Finally, the <w>&lt;&gt;</w> button allows you to quickly see the raw HTML markup, to make any edits that are not possible in the default formatted view.</p></td>
+        </tr>
+        <tr>
+          <td><mark onclick="preview()">Preview</mark></td>
+          <td>The preview tab will render your math and display the final output. If you print this page to pdf (via your browser), this output will be exported to pdf.</td>
+        </tr>
+        <tr>
+          <td><mark onclick="shortcuts()">Shortcuts</mark></td>
+          <td>The shortcuts tab contains a list of keyboard shortcuts supported by this app to enter mathematical symbols. To modify and add to these shortcuts, you will need to fork this repo and update the TinyMCE configuration in writer.js.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>How to Enter Math</h3>
+    <p>The editor supports both <a href="http://asciimath.org">AsciiMath</a> or <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">LaTex</a> input. Math can be entered in the editor either inline within a sentence of text, or by itself as a block of math. I prefer AsciiMath for inline math as it is easier to read, and LaTex for blocks as it has better equation alignment (but it is ultimately your preference). Below are illustrative examples.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Input Method</th>
+          <th>Delimiter</th>
+          <th>Input Example</th>
+          <th>Output</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Inline AsciiMath (recommended)</td>
+          <td>Backticks <w>`</w> ... <w>`</w></td>
+          <td><w>`</w>alpha ∩ beta = 3<w>`</w></td>
+          <td>`alpha ∩ beta = 3`</td>
+        </tr>
+        <tr>
+          <td>Inline LaTex (not recommended)</td>
+          <td>Backslash then parentheses <w>\(</w> ... <w>\)</w></td>
+          <td><w>\(</w>\alpha \cap \beta = 3<w>\)</w></td>
+          <td>\(\alpha \cap \beta = 3\)</td>
+        </tr>
+        <tr>
+          <td>Block AsciiMath without alignment (not recommended)</td>
+          <td>Backticks <w>`</w> ... <w>`</w></td>
+          <td><w>`</w>f(x) = x + 3 - 2<w>`</w><br /><w>`</w>= x + 1<w>`</w><br /><w>`</w>f'(x) = 1<w>`</w></td>
+          <td>`f(x) = x + 3 - 2`<br />`= x + 1`<br />`f'(x) = 1`</td>
+        </tr>
+        <tr>
+          <td>Block AsciiMath with alignment through matrices (not recommended)</td>
+          <td>Backticks <w>`</w> ... <w>`</w></td>
+          <td><w>`</w>{:(f(x)  ,=, x + 3 - 2),(      ,=, x + 1 ),(f'(x) ,=, 1 ):}<w>`</w></td>
+          <td>`{:(f(x)  ,=, x + 3 - 2),(      ,=, x + 1 ),(f'(x) ,=, 1 ):}`</td>
+        </tr>
+        <tr>
+          <td>Block LaTex (recommended)</td>
+          <td>Backslash then square brackets <w>\[</w> ... <w>\]</w> or double dollar signs <w>$$</w> ... <w>$$</w></td>
+          <td><w>\[\begin{aligned}</w>f(x) <w>&</w>= x + 3 - 2 <w>\\</w> <w>&</w>= x + 1<w><w>\end{aligned}</w>\]</w> <w>$$</w>f'(x) = 1<w>$$</w></td>
+          <td>\[\begin{aligned}f(x) &= x + 3 - 2 \\ &= x + 1\end{aligned}\] $$f'(x) = 1$$</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Note that the last two examples for block AsciiMath and LaTex input are complicated. I suggest avoiding AsciiMath block input as it requires you to correctly place each part of the equation into a matrix cell: the {: ... :} are to start a matrix, the () are for each row and the , is used to split each row into its cells. On the other hand, whilst the block latex input looks complicated, that is mostly because I squashed it all onto one line (to illustrate that line breaks are ignored). It only has a few basic rules and is a straightforward method to input multi-line equations:</p>
+    <uL><li>Equations must begin with <w>\begin{aligned}</w> and end with <w>\end{aligned}</w></li>
+      <li><w>&=</w> is used for aligning the equations </li>
+      <li><w>\\</w> is used to break to a new line</li>
+    </ul>
+
+    <p>More details on the AsciiMath and LaTex commands to input math can be respectively found <a href="http://asciimath.org">here</a> and <a href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference">here</a>.</p>
+ 
+    <h3>Exporting Math to the Web</h3>
+    <p>You can export the raw HTML markup behind your content via a button in the editor. To subsequently include this on your website or blog, you will need to load the MathJax JavaScript library as well. Add the following code to your website:</p>
+
+    <pre><code>&lt;script>
+window.MathJax = {
+    "fast-preview": {
+                disabled: true
+        },
+    extensions: ["tex2jax.js", "asciimath2jax.js"],
+    jax: ["input/TeX", "input/AsciiMath", "output/HTML-CSS"],
+    displayAlign: "left",
+    tex2jax: {
+      inlineMath: [ ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    }, 
+    asciimath2jax: {
+      delimiters: [['`','`']],
+      preview: [""]},
+      "HTML-CSS": { fonts: ["STIX"] }
+  }
+&lt;/script>
+&lt;script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js">&lt;/script>
+      </code></pre>

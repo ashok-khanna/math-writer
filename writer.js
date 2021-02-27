@@ -384,8 +384,6 @@ function exportFile(data){
 
 /* Import from File */
 
-
-
 function readSingleFile(e) {
   var file = e.target.files[0];
   if (!file) {
