@@ -100,6 +100,21 @@ mark {
 	cursor: pointer;
 }
 
+/* Custom styling for <mark-grey> tag. Allows us to create the nice
+buttons for keyboard shortcuts */
+mark-grey {
+	color: black;
+	font-weight: bold;
+	background-color: #fafafa;
+	display: inline-block;
+	padding: 4px;
+	margin: 4px;
+	border-radius: 4px;
+	min-width: 100px;
+	text-align: center;
+	cursor: pointer;
+}
+
 /* Adding our theme blue color to the MathJax recommended code in the Read Me */
 code { color: #1976D2; }
 
