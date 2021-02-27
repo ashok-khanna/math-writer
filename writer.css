@@ -1,4 +1,6 @@
-/* We load the stix fonts here. https://www.stixfonts.org/ */
+/* We use STIX fonts here in our web application,
+refer https://www.stixfonts.org/. Note that MathJax also uses
+STIX fonts, but will load it seperately and not via below */
 
 @font-face {
 	font-family: 'STIX Two Math Regular';
@@ -66,10 +68,7 @@ html {
   	-moz-osx-font-smoothing: grayscale;
 }
 
-body {
-	margin: 0px;
-	font-family: 'Stix Two Text', 'Stix Two Math Regular', Serif;
-}
+body { margin: 0px; font-family: 'Stix Two Text', 'Stix Two Math Regular', Serif; }
 
 /* Generic Table formatting */
 table {
@@ -81,10 +80,7 @@ table {
 }
 
 /* Add black border to all table cells */
-th, td {
-	border: 1px solid black;
-	padding: 10px;
-}
+th, td { border: 1px solid black; padding: 10px; }
 
 /* Add blue background to table headers */
 th { background-color: #97C0EA; }
@@ -232,32 +228,19 @@ Char Map. Also attaching this container to the main CSS Grid */
 
 /* Editor is visible on page load. We use JavaScript
 to toggle each of these four views  */
-#editor {
-  grid-area: A;
-  color: black;
-  display: block;
-}
+#editor { grid-area: A; color: black; display: block; }
 
 /* Preview is hidden on page load. We use JavaScript
 to toggle each of these four views */
-#preview {
-	grid-area: B;
-	display: none;
-}
+#preview { grid-area: B; display: none; }
 
 /* Shortcuts is hidden on page load. We use JavaScript
 to toggle each of these four views */
-#shortcuts {
-	grid-area: C;
-	display: none;
-}
+#shortcuts { grid-area: C; display: none; }
 
 /* Help is hidden on page load. We use JavaScript
 to toggle each of these four views */
-#help {
-	grid-area: D;
-	display: none;
-}
+#help { grid-area: D; display: none; }
 
 /* Styling for TinyMCE editor. Not 100% sure on
 how the padding-top and padding-bottom work here
