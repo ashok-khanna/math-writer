@@ -170,7 +170,7 @@
   var requestOne = new XMLHttpRequest();
   requestOne.open('GET', '/help.html', true);
   requestOne.onload = function() {
-  if (requestOne.status >= 200 && request.status < 400) {
+  if (requestOne.status >= 200 && requestOne.status < 400) {
       var respOne = requestOne.responseText;
       document.querySelector('#help').innerHTML = respOne;
     }
@@ -181,7 +181,7 @@
   var requestTwo = new XMLHttpRequest();
   requestTwo.open('GET', '/shortcuts.html', true);
   requestTwo.onload = function() {
-  if (requestTwo.status >= 200 && request.status < 400) {
+  if (requestTwo.status >= 200 && requestTwo.status < 400) {
       var respTwo = requestTwo.responseText;
       document.querySelector('#shortcuts').innerHTML = respTwo;
     }
