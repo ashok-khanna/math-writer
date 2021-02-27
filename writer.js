@@ -33,7 +33,7 @@ var tinymceConfig = {
   statusbar: false,
   menubar: false,
   inline: false,
-  toolbar: 'mycharmap | bold italic underline | styleselect forecolor | table link | numlist bullist | alignleft aligncenter alignright alignjustify | charmap | importHTML exportHTML | help code fullscreen',
+  toolbar: 'mycharmap styleselect | bold italic underline forecolor | alignleft aligncenter alignright alignjustify | table numlist bullist link | charmap | importHTML exportHTML | help code fullscreen',
   plugins: ['quickbars', 'textpattern', 'lists', 'paste', 'autoresize', 'code', 'link', 'table', 'searchreplace', 'charmap', 'fullscreen', 'help'],
   paste_as_text: true,
   entity_encoding: 'raw',
