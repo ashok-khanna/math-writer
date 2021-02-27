@@ -1,5 +1,5 @@
 # Math Writer: Rich Text Math Editing on the Web
-A simple web-based rich text editor for Math (AsciiMath / Tex). Feel free to fork this repo and make any changes you prefer. Suggestions and pull requests are welcome.
+Math Writer is a simple web-based rich text editor for Math (AsciiMath / Tex). Feel free to fork this repo and make any changes you prefer. Suggestions and pull requests are welcome.
 
 This math editor utilises MathJax to render maths (refer folder MathJax-2.7.7). Math is entered either with backquote delimited \` .... \` (for AsciiMath) or \(....\), \[...\] and $$...$$ for Latex (the first being for inline, the latter two for block maths). We use an older version of MathJax as, at time of writing, MathJax 3+ does not currently support STIX fonts. The fonts folder contains the STIX fonts that are used in the editor (it also includes some courier fonts, that I haven't used in the editor, but keeping here for my own archives).
 
