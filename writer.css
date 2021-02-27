@@ -49,7 +49,7 @@ the content fit better */
 @media screen and (max-width: 1000px) {
 	#mathjax-logo { display: none !important; }
 	.button { font-size: 0.9rem !important;	}
-	table { width: 90% !important; font-size: 0.8rem !important; }
+	table { width: 100% !important; font-size: 0.8rem !important; }
 	main {
 		grid-template-areas:
 		"github github star star"
