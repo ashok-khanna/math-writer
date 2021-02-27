@@ -52,7 +52,7 @@ document.addEventListener('keyup', doc_keyUp, false);
 
 /* TinyMCE Editor Setup */
 
-var dfreeBodyConfig = {
+var tinymceConfig = {
   selector: '#tinymce',
   content_css: "writer.css",
   branding: false,
@@ -261,21 +261,15 @@ document.getElementById('import-file').click();
       tinymce.activeEditor.execCommand('mceInsertContent', false, 'π');
     });
 
-
-
-
 }
 
 };
 
 
 
+/* Initialise TinyMCE with the above settings */
 
-tinymce.init(dfreeBodyConfig);
-
-/* Keyboard Shortcuts */
-
-
+tinymce.init(tinymceConfig);
 
 
 /* Get Content */

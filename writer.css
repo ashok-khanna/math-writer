@@ -37,7 +37,7 @@
 page, so all other pages are hidden */
 @media print { 
 	#github, #star, #text, #top-gutter, #second-gutter, #editor-button,
-#preview-button, #char-button, #help-button, #third-gutter, #char {
+#preview-button, #shortcut-button, #help-button, #third-gutter, #char {
 		display: none !important;
 	}
 }
@@ -64,12 +64,10 @@ html {
 	font-size: 100%;
 	-webkit-font-smoothing: antialiased;
   	-moz-osx-font-smoothing: grayscale;
-  	background-color: white;
 }
 
 body {
 	margin: 0px;
-	background-color: white;
 	font-family: 'Stix Two Text', 'Stix Two Math Regular', Serif;
 }
 
@@ -277,7 +275,8 @@ to toggle each of these four views */
 how the padding-top and padding-bottom work here
 as I was getting some strange results */
 #tinymce {
-  background-color: #FFEFD5 !important;
+  background-color: #FFEFD5;
+  min-height: 200px !important;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 10px !important;
@@ -293,10 +292,9 @@ below the editor when the 'Char Map' button is clicked. */
 	align-items: stretch;
 	flex-wrap: wrap;
 	flex-direction: row;
-	margin: 0 auto;
+	margin: 20px auto;
 	width: 50%;
 	padding: 20px;
-	border: 1px solid black;
 }
 
 /* Pushes last three buttons in TinyMCE toolbar to the right */
