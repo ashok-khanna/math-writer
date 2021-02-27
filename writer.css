@@ -102,25 +102,19 @@ mark {
 }
 
 /* Adding our theme blue color to the MathJax recommended code in the Read Me */
-code {
-	color: #1976D2;
-}
+code { color: #1976D2; }
 
 /* Custom HTML tag for quickly typing blue text in the Read Me */
-w {
-	color: blue;
-}
+w { color: blue; }
 
 /* To dynamically (automatically) adjust the row / column size 
 for our tables in the Read Me */
-.table-tutorial {
-	table-layout: auto;
-}
+.table-tutorial { table-layout: auto; }
 
 /* Center the column headers for our shortcuts table */
-.shortcut-table {
-	text-align: center;
-}
+.shortcut-table { text-align: center; }
+
+.shortcut-table th { background-color: #1976D2; colour: white; }
 
 /* Styling for the four navigation buttons (Editor, Preview, Shortcuts, Read Me) */
 .button {
@@ -218,10 +212,7 @@ main {
 }
 
 /* Attaching gutters to the grid and bottom border on top gutter */
-#top-gutter {
-	grid-area: top-gutter;
-	border-bottom: solid 1px #dedede;
-}
+#top-gutter { grid-area: top-gutter; border-bottom: solid 1px #dedede; }
 #second-gutter { grid-area: second-gutter; }
 #third-gutter {	grid-area: third-gutter; }
 
