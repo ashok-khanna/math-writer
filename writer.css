@@ -105,14 +105,6 @@ buttons for keyboard shortcuts */
 mark-grey {
 	color: black;
 	font-weight: bold;
-	background-color: #fafafa;
-	display: inline-block;
-	padding-left: 6px;
-	padding-right: 6px;
-	border-radius: 4px;
-	min-width: 100px;
-	text-align: center;
-	cursor: pointer;
 }
 
 /* Adding our theme blue color to the MathJax recommended code in the Read Me */
