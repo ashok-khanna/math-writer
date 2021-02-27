@@ -2,11 +2,23 @@
 <html lang="en">
 <head>
   <title>Math Writer</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Ensures Special Characters are Encoded Correctly -->
+	<meta charset="utf-8"> 
+
+  <!-- Ensures mobile browsers correctly adjust viewport. Note that this website is not intended for mobile use -->
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+  <!-- Primary Style Sheet -->
 	<link rel="stylesheet" type="text/css" href="writer.css">
+
+  <!-- TinyMCE is the Rich Text Editor used on this website -->
 	<script src="tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+
+  <!-- Primary JavaScript file. Note that we load this after TinyMCE as we will make configurations here -->
   <script src="writer.js" referrerpolicy="origin"></script>
+
+  <!-- Load jQuery. We use this -->
   <script src="jquery-3.5.1.min.js" referrerpolicy="origin"></script>
   <script src="https://buttons.github.io/buttons.js"></script>
   <script>
@@ -357,9 +369,17 @@ window.MathJax = {
 <script>
   document.getElementById('import-file').addEventListener('change', readSingleFile, false);
   document.getElementById("tinymce").focus();
-   $(function(){
-      $("#help").load("help.html"); 
-    });
+  
+  var request = new XMLHttpRequest();
+  request.open('GET', '/somepage', true);
+  request.onload = function() {
+  if (request.status >= 200 && request.status < 400) {
+      var resp = request.responseText;
+      document.querySelector('#div').innerHTML = resp;
+    }
+  };
+
+  request.send();
 
 </script>
 </body>
