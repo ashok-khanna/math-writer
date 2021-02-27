@@ -167,26 +167,26 @@
   document.getElementById("tinymce").focus();
   
 // Programmatically load help.html into the file
-  var request = new XMLHttpRequest();
-  request.open('GET', '/help.html', true);
-  request.onload = function() {
-  if (request.status >= 200 && request.status < 400) {
-      var resp = request.responseText;
-      document.querySelector('#help').innerHTML = resp;
+  var requestOne = new XMLHttpRequest();
+  requestOne.open('GET', '/help.html', true);
+  requestOne.onload = function() {
+  if (requestOne.status >= 200 && request.status < 400) {
+      var respOne = requestOne.responseText;
+      document.querySelector('#help').innerHTML = respOne;
     }
   };
-  request.send();
+  requestOne.send();
 
 // Programatically load shortcuts.html into the file
-  var request = new XMLHttpRequest();
-  request.open('GET', '/shortcuts.html', true);
-  request.onload = function() {
-  if (request.status >= 200 && request.status < 400) {
-      var resp = request.responseText;
-      document.querySelector('#shortcuts').innerHTML = resp;
+  var requestTwo = new XMLHttpRequest();
+  requestTwo.open('GET', '/shortcuts.html', true);
+  requestTwo.onload = function() {
+  if (requestTwo.status >= 200 && request.status < 400) {
+      var respTwo = requestTwo.responseText;
+      document.querySelector('#shortcuts').innerHTML = respTwo;
     }
   };
-  request.send();
+  requestTwo.send();
 
 </script>
 </body>
