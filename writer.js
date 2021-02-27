@@ -2,37 +2,6 @@
 
 var charActive = false;
 
-
-/* Determine which operating system, so that we can use the right shortcuts.
-For your own private version, you can simply hardcode the OS variable to Mac, Windows or Linux
-Taken from: https://stackoverflow.com/questions/38241480/detect-macos-ios-windows-android-and-linux-os-with-js*/
-
-function getOS() {
-  var userAgent = window.navigator.userAgent,
-      platform = window.navigator.platform,
-      macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K', 'darwin'],
-      windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
-      iosPlatforms = ['iPhone', 'iPad', 'iPod'],
-      os = null;
-
-  if (macosPlatforms.indexOf(platform) !== -1) {
-    os = 'Mac';
-  } else if (iosPlatforms.indexOf(platform) !== -1) {
-    os = 'iOS';
-  } else if (windowsPlatforms.indexOf(platform) !== -1) {
-    os = 'Windows';
-  } else if (/Android/.test(userAgent)) {
-    os = 'Android';
-  } else if (!os && /Linux/.test(platform)) {
-    os = 'Linux';
-  }
-
-  return os;
-}
-
-/* Set the modifier key to ctrl if Mac, otherwise meta (windows key) */
-var modifier = (getOS() == 'Mac') ? "ctrl" : "alt";
-
 /* Function that takes a key input and executes code depending on the 
 combination. Ctrl Shift + 1 to Ctrl + Shift 4 are used to toggle
 between Editor, Preview, Shortcuts & Read Me. Keycodes are from 
@@ -52,8 +21,8 @@ function doc_keyUp(e) {
 
 /* Register an event listener for keystrokes and intercept in case it
 meets the above patterns */
-document.addEventListener('keyup', doc_keyUp, false);
 
+document.addEventListener('keyup', doc_keyUp, false);
 
 /* TinyMCE Editor Setup */
 
@@ -270,13 +239,13 @@ document.getElementById('import-file').click();
 
 };
 
-
-
 /* Initialise TinyMCE with the above settings */
+
 tinymce.init(tinymceConfig);
 
 
-/* Extract content from  */
+/* Extract content from the editor and insert into the preview
+div. Then call MathJax to render the math. */
 
 function getContent(){
   var myContent = tinymce.activeEditor.getContent();
@@ -286,10 +255,11 @@ function getContent(){
  
   const math = document.getElementById("preview");
   MathJax.Hub.Queue(["Typeset",MathJax.Hub,math]);
-  //MathJax.Hub.Queue([math]);
 }
 
+
 /* Insert Character into the Editor (this is called by the Char Map */
+
 function insertTextAtCursor(character){
   tinymce.activeEditor.execCommand('mceInsertContent', false, character);
 }
@@ -336,7 +306,8 @@ Char Map. Note that this function can only be called
 by the User from the Editor, so we assume we are in
 the editor view and do not need to make the editor view
 active. Also note that navigating to the other tabs
-does not automatically resets the editor view */
+does not automatically resets the editor view as we store
+the state in the global variable charActive. */
 
 function charToggle(){
       if (charActive){ 
@@ -423,3 +394,35 @@ function help(){
       document.getElementById("help").style.display = "block";
       document.getElementById("char").style.display = "none";     
 }
+
+/* Not Used: Code to determine which OS the user is on, and to then
+customise the keyboard shortcuts for their OS.
+
+Taken from: https://stackoverflow.com/questions/38241480/detect-macos-ios-windows-android-and-linux-os-with-js
+
+function getOS() {
+  var userAgent = window.navigator.userAgent,
+      platform = window.navigator.platform,
+      macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K', 'darwin'],
+      windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+      iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+      os = null;
+
+  if (macosPlatforms.indexOf(platform) !== -1) {
+    os = 'Mac';
+  } else if (iosPlatforms.indexOf(platform) !== -1) {
+    os = 'iOS';
+  } else if (windowsPlatforms.indexOf(platform) !== -1) {
+    os = 'Windows';
+  } else if (/Android/.test(userAgent)) {
+    os = 'Android';
+  } else if (!os && /Linux/.test(platform)) {
+    os = 'Linux';
+  }
+
+  return os;
+}
+
+var modifier = (getOS() == 'Mac') ? "ctrl" : "alt";
+
+*/
