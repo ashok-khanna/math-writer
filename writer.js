@@ -29,7 +29,10 @@ function getOS() {
 var modifier = (getOS() == 'Mac') ? "ctrl" : "alt";
 
 /* Function that takes a key input and executes code depending on the 
-combination. Ctrl Shift + 1 to Ctrl + Shift 4 */
+combination. Ctrl Shift + 1 to Ctrl + Shift 4 are used to toggle
+between Editor, Preview, Shortcuts & Read Me. Keycodes are from 
+https://keycode.info/ */
+
 function doc_keyUp(e) {
     if (e.ctrlKey && e.shiftKey && e.keyCode == 49) {
         editor();
