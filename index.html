@@ -40,8 +40,8 @@
   }
   </script>
   
-  <!-- Load MathJax for rendering Math. Configuration settings are above -->
-  <!-- Note we use MathJax 2.7.7 and not the latest because we want to customise our font to STIX -->
+  <!-- Load MathJax for rendering Math. Configuration settings are above
+    Note we use MathJax 2.7.7 and not the latest because we want to customise our font to STIX -->
   <script type="text/javascript" sync src="MathJax-2.7.7/MathJax.js"></script>
 
   <!-- Google Adsense & Analytics -->
@@ -83,10 +83,18 @@
     <div id="editor">
       <div id="tinymce" contenteditable="true" spellcheck="false"></div>
     </div>
-    
-    <div id="preview"><!-- Div where we insert the output from the editor --></div>
-    <div id="shortcuts"><!-- Refer bottom of this file. We will load HTML into this div --></div>
-    <div id="help"><!-- Refer bottom of this file. We will load HTML into this div --><</div>
+
+    <!-- Div where we insert the output from the editor.
+      The content is just a placeholder so that MathJax
+      can recognise and attach this div to its DOM. It will get overriden
+      whenever the below is used to generate output from the editor. -->
+    <div id="preview">
+      `sum_(i=1)^n i^3=((n(n+1))/2)^2`
+    </div>
+
+    <!-- Refer bottom of this file. We will load HTML into these divs -->
+    <div id="shortcuts"></div>
+    <div id="help"></div>
 
     <!-- Character Matrix for Insertion into Editor -->
     <!-- Hidden until we click the Show Symbols button in the editor -->
@@ -144,11 +152,12 @@
       <button onclick="insertTextAtCursor('𝜕')" class="dark-char-button">𝜕</button>
     </div>
   </div>
-</main>
+</main> 
 
-<!-- We need this hidden file input button to be able to import files -->
-<!-- We will programatically click it on behalf of the user -->
+<!-- We need this hidden file input button to be able to import files
+  We will programatically click it on behalf of the user -->
 <input type="file" style="display:none;" id="import-file" name="file"/>
+
 <script>
 
 // Add event listener to execute readSingleFile when the import-file (hidden button) is clicked
