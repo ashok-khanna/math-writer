@@ -110,6 +110,9 @@ mark-grey {
 /* Adding our theme blue color to the MathJax recommended code in the Read Me */
 code { color: #1976D2; }
 
+/* Add some spacing between bullet points in lists */
+ul li { padding: 8px 0px; }
+
 /* Custom HTML tag for quickly typing blue text in the Read Me */
 w { color: blue; }
 
