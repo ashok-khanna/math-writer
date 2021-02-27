@@ -9,7 +9,7 @@ https://keycode.info/ */
 
 function doc_keyUp(e) {
     if (e.ctrlKey && e.shiftKey && e.keyCode == 49) {
-        editor();
+        myEditor();
     } else if (e.ctrlKey && e.shiftKey && e.keyCode == 50) {
         preview();
     }  else if (e.ctrlKey && e.shiftKey && e.keyCode == 51) {
@@ -86,7 +86,7 @@ document.getElementById('import-file').click();
 
     editor.shortcuts.add(
       'ctrl+shift+49', 'Inserts for ctrl+shift+1', function () {
-      editor();
+      myEditor();
     });
 
     editor.shortcuts.add(
@@ -352,7 +352,7 @@ selected, then we want to bring focus to it (to the end of the
 text, which is why the code is a bit complicated vs. the code in
 index.html that brings focus to the start of the editor. */
 
-function editor(){
+function myEditor(){
       document.getElementById("editor-button").className = "button bt-active";
       document.getElementById("preview-button").className = "button bt-inactive";
       document.getElementById("shortcut-button").className = "button bt-inactive";
