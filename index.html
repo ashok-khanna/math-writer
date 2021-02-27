@@ -96,12 +96,18 @@
       `sum_(i=1)^n i^3=((n(n+1))/2)^2`
     </div>
 
-    <!-- Refer bottom of this file. We will load HTML into these divs -->
+    <!-- Refer bottom of this file. We will load HTML into these divs
+      Note that if you open a local version of this repo, the below will
+      not load as local files cannot be loaded into a webpage programmatically
+      through JavaScript (to prevent security flaws of giving an untrusted
+      party access to your local shared drive. To overcome, simply paste the
+      contents of help.html and shortcuts.html into these divs and remove
+      the loading javascript at the bottom of this file. -->
     <div id="shortcuts"></div>
     <div id="help"></div>
 
-    <!-- Character Matrix for Insertion into Editor -->
-    <!-- Hidden until we click the 'Char Map' button in the editor -->
+    <!-- Character Matrix for Insertion into Editor. Hidden
+      until we click the 'Char Map' button in the editor -->
     <div id="char">
       <button onclick="insertTextAtCursor('⊂')" class="dark-char-button">⊂</button>
       <button onclick="insertTextAtCursor('⊃')" class="dark-char-button">⊃</button>
