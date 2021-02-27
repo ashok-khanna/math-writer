@@ -29,16 +29,15 @@ function getOS() {
 var modifier = (getOS() == 'Mac') ? "ctrl" : "alt";
 
 /* Function that takes a key input and executes code depending on the 
-combination. For some reason, CTRL + SHIFT + 2 and CTRL + SHIFT + 6 did 
-not work. Hence the slighlty awkard numbering scheme. */
+combination. Ctrl Shift + 1 to Ctrl + Shift 4 */
 function doc_keyUp(e) {
-    if (e.ctrlKey && e.shiftKey && e.key === '1') {
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 49) {
         editor();
-    } else if (e.ctrlKey && e.shiftKey && e.key === '3') {
+    } else if (e.ctrlKey && e.shiftKey && e.keyCode == 50) {
         preview();
-    }  else if (e.ctrlKey && e.shiftKey && e.key === '4') {
+    }  else if (e.ctrlKey && e.shiftKey && e.keyCode == 51) {
         shortcuts();
-    } else if (e.ctrlKey && e.shiftKey && e.key === '5') {
+    } else if (e.ctrlKey && e.shiftKey && e.keyCode == 52) {
         help();
     } 
 }
