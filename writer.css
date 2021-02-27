@@ -36,7 +36,7 @@
 /* For the Print Style Sheet, we only want to show the preview
 page, so all other pages are hidden */
 @media print { 
-	#github, #star, #text, #top-gutter, #second-gutter, #editor-button,
+	#github, #star, #mathjax-logo, #top-gutter, #second-gutter, #editor-button,
 #preview-button, #shortcut-button, #help-button, #third-gutter, #char {
 		display: none !important;
 	}
@@ -45,7 +45,7 @@ page, so all other pages are hidden */
 /* For smaller screens, making some adjustments to make
 the content fit better */
 @media screen and (max-width: 1000px) {
-	#text { display: none !important; }
+	#mathjax-logo { display: none !important; }
 	.button { font-size: 0.9rem !important;	}
 	table { width: 90% !important; font-size: 0.8rem !important; }
 	main {
@@ -86,6 +86,9 @@ th, td {
 	padding: 10px;
 }
 
+/* Add blue background to table headers */
+th { background-color: #97C0EA; }
+
 /* Custom styling for <mark> tag. Allows us to create the nice
 "Editor Tab", "Preview Tab", etc. tags in the Read Me */
 mark {
@@ -113,8 +116,6 @@ for our tables in the Read Me */
 
 /* Center the column headers for our shortcuts table */
 .shortcut-table { text-align: center; }
-
-.shortcut-table th { background-color: #1976D2; colour: white; }
 
 /* Styling for the four navigation buttons (Editor, Preview, Shortcuts, Read Me) */
 .button {
@@ -164,10 +165,7 @@ for our tables in the Read Me */
 }
 
 /* Styling for buttons in Char Map when hovered */
-.dark-char-button:hover {
-	background-color: rgb(220,224,226);
-	color:#1976D2;
-}
+.dark-char-button:hover { background-color: rgb(220,224,226); color:#1976D2; }
 
 
 /* CSS Grid Layout for Main Container */
