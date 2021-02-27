@@ -184,7 +184,7 @@ main {
 	grid-template-rows: auto 1rem 1rem 2rem 1rem 1rem auto;
 	grid-column-gap: 2.5vw;
 	grid-template-areas:
-		"github star text text"
+		"github star mathjax-logo mathjax-logo"
 		"top-gutter top-gutter top-gutter top-gutter"
 		"second-gutter second-gutter second-gutter second-gutter"
 		"editor-button preview-button shortcut-button help-button"
@@ -209,13 +209,12 @@ main {
 	align-items: center;
 }
 
-/* Styling for "https://writer.math.dev" logo and attaching to CSS Grid */
-#text {
-	grid-area: text;
+/* Styling for Powered by MathJax Logo and attaching to CSS Grid */
+#mathjax-logo {
+	grid-area: mathjax-logo;
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	font-family: monospace;
 }
 
 /* Attaching gutters to the grid and bottom border on top gutter */

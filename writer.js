@@ -1,3 +1,8 @@
+/* Global Variables to store state */
+
+var charActive = false;
+
+
 /* Determine which operating system, so that we can use the right shortcuts.
 For your own private version, you can simply hardcode the OS variable to Mac, Windows or Linux
 Taken from: https://stackoverflow.com/questions/38241480/detect-macos-ios-windows-android-and-linux-os-with-js*/
@@ -88,7 +93,7 @@ var tinymceConfig = {
     editor.ui.registry.addToggleButton('mycharmap', {
       text: 'Char Map',
       onAction: function (api) {
-        char();
+        charToggle();
         api.setActive(!api.isActive());
       }
     });
@@ -268,11 +273,10 @@ document.getElementById('import-file').click();
 
 
 /* Initialise TinyMCE with the above settings */
-
 tinymce.init(tinymceConfig);
 
 
-/* Get Content */
+/* Extract content from  */
 
 function getContent(){
   var myContent = tinymce.activeEditor.getContent();
@@ -285,82 +289,16 @@ function getContent(){
   //MathJax.Hub.Queue([math]);
 }
 
-function char(){
-      if (document.getElementById("char").style.display == "flex"){ 
-            document.getElementById("char").style.display = "none";
-            document.getElementById("main-screen").style.gridTemplateAreas = '"A A A A" ';
-      } else {
-            document.getElementById("char").style.display = "flex";
-            document.getElementById("main-screen").style.gridTemplateAreas = '"A A A A" "char char char char"';
-      }
-}
-
-function editor(){
-
-      document.getElementById("editor-button").className = "button bt-active";
-      document.getElementById("preview-button").className = "button bt-inactive";
-      document.getElementById("shortcut-button").className = "button bt-inactive";
-      document.getElementById("help-button").className = "button bt-inactive";
-
-      document.getElementById("main-screen").style.gridTemplateAreas = '"A A A A"';
-      document.getElementById("editor").style.display = "block";
-      document.getElementById("preview").style.display = "none";
-      document.getElementById("shortcuts").style.display = "none";
-      document.getElementById("help").style.display = "none";
-
-      tinyMCE.activeEditor.selection.select(tinyMCE.activeEditor.getBody(), true);
-      tinyMCE.activeEditor.selection.collapse(false);
-}
-
-function preview(){
-      document.getElementById("editor-button").className = "button bt-inactive";
-      document.getElementById("preview-button").className = "button bt-active";
-      document.getElementById("shortcut-button").className = "button bt-inactive";
-      document.getElementById("help-button").className = "button bt-inactive";
-
-      document.getElementById("main-screen").style.gridTemplateAreas = '"B B B B"';
-      document.getElementById("editor").style.display = "none";
-      document.getElementById("preview").style.display = "block";
-      document.getElementById("shortcuts").style.display = "none";
-      document.getElementById("help").style.display = "none";    
-
-      getContent();
-}
-
-function shortcuts(){
-      document.getElementById("editor-button").className = "button bt-inactive";
-      document.getElementById("preview-button").className = "button bt-inactive";
-      document.getElementById("shortcut-button").className = "button bt-active";
-      document.getElementById("help-button").className = "button bt-inactive";
-       
-      document.getElementById("main-screen").style.gridTemplateAreas = '"C C C C"';
-      document.getElementById("editor").style.display = "none";
-      document.getElementById("preview").style.display = "none";
-      document.getElementById("shortcuts").style.display = "block";
-      document.getElementById("help").style.display = "none";     
-}
-
-function help(){
-      document.getElementById("editor-button").className = "button bt-inactive";
-      document.getElementById("preview-button").className = "button bt-inactive";
-      document.getElementById("shortcut-button").className = "button bt-inactive";
-      document.getElementById("help-button").className = "button bt-active";
-       
-      document.getElementById("main-screen").style.gridTemplateAreas = '"D D D D"';
-      document.getElementById("editor").style.display = "none";
-      document.getElementById("preview").style.display = "none";
-      document.getElementById("shortcuts").style.display = "none";
-      document.getElementById("help").style.display = "block";     
-}
-
-
-/* Insert Character */
-
+/* Insert Character into the Editor (this is called by the Char Map */
 function insertTextAtCursor(character){
   tinymce.activeEditor.execCommand('mceInsertContent', false, character);
 }
 
-/* Export to File */
+
+/* Two functions to export the content of the editor
+to text. The first creates the file (with provided text),
+while the second extracts the data and passes it to the 
+the first function. */
 
 function download(content, fileName, contentType) {
    var a = document.createElement("a");
@@ -371,12 +309,12 @@ function download(content, fileName, contentType) {
 }
 
 function exportFile(data){
-   // Output the result
    fileTitle = "math-export.txt"
    download(data, fileTitle, 'text/plain');
 }
 
-/* Import from File */
+/* Import text from File and set the value
+of the Editor to it */
 
 function readSingleFile(e) {
   var file = e.target.files[0];
@@ -390,4 +328,98 @@ function readSingleFile(e) {
   };
 
   reader.readAsText(file);
+}
+
+
+/* Toggles the appearance and disapperance of the
+Char Map. Note that this function can only be called
+by the User from the Editor, so we assume we are in
+the editor view and do not need to make the editor view
+active. Also note that navigating to the other tabs
+does not automatically resets the editor view */
+
+function charToggle(){
+      if (charActive){ 
+            document.getElementById("char").style.display = "none";
+            document.getElementById("main-screen").style.gridTemplateAreas = '"A A A A" ';
+            charActive = false;
+      } else {
+            document.getElementById("char").style.display = "flex";
+            document.getElementById("main-screen").style.gridTemplateAreas = '"A A A A" "char char char char"';
+            charActive = true;
+      }
+}
+
+
+/* Functions to handle navgiation between the Editor, Preview,
+Shortcuts & Read Me tabs. We are basically hiding the non-active
+tabs in each of the functions, and also changing the button status
+(which also serves to track the active tab). If the Editor tab is
+selected, then we want to bring focus to it (to the end of the 
+text, which is why the code is a bit complicated vs. the code in
+index.html that brings focus to the start of the editor. */
+
+function editor(){
+      document.getElementById("editor-button").className = "button bt-active";
+      document.getElementById("preview-button").className = "button bt-inactive";
+      document.getElementById("shortcut-button").className = "button bt-inactive";
+      document.getElementById("help-button").className = "button bt-inactive";
+      document.getElementById("main-screen").style.gridTemplateAreas = '"A A A A"';
+      document.getElementById("editor").style.display = "block";
+      document.getElementById("preview").style.display = "none";
+      document.getElementById("shortcuts").style.display = "none";
+      document.getElementById("help").style.display = "none";
+
+      // Put focus to Editor, but at the end of the text:
+      tinyMCE.activeEditor.selection.select(tinyMCE.activeEditor.getBody(), true);
+      tinyMCE.activeEditor.selection.collapse(false);
+
+      //Add Char Map if its meant to be active
+      if (charActive) {
+            document.getElementById("char").style.display = "flex";
+            document.getElementById("main-screen").style.gridTemplateAreas = '"A A A A" "char char char char"';
+      } else {
+            document.getElementById("char").style.display = "none";
+            document.getElementById("main-screen").style.gridTemplateAreas = '"A A A A" ';
+      }
+}
+
+function preview(){
+      document.getElementById("editor-button").className = "button bt-inactive";
+      document.getElementById("preview-button").className = "button bt-active";
+      document.getElementById("shortcut-button").className = "button bt-inactive";
+      document.getElementById("help-button").className = "button bt-inactive";
+      document.getElementById("main-screen").style.gridTemplateAreas = '"B B B B"';
+      document.getElementById("editor").style.display = "none";
+      document.getElementById("preview").style.display = "block";
+      document.getElementById("shortcuts").style.display = "none";
+      document.getElementById("help").style.display = "none";
+      document.getElementById("char").style.display = "none";    
+      getContent();
+}
+
+function shortcuts(){
+      document.getElementById("editor-button").className = "button bt-inactive";
+      document.getElementById("preview-button").className = "button bt-inactive";
+      document.getElementById("shortcut-button").className = "button bt-active";
+      document.getElementById("help-button").className = "button bt-inactive";
+      document.getElementById("main-screen").style.gridTemplateAreas = '"C C C C"';
+      document.getElementById("editor").style.display = "none";
+      document.getElementById("preview").style.display = "none";
+      document.getElementById("shortcuts").style.display = "block";
+      document.getElementById("help").style.display = "none";
+      document.getElementById("char").style.display = "none";     
+}
+
+function help(){
+      document.getElementById("editor-button").className = "button bt-inactive";
+      document.getElementById("preview-button").className = "button bt-inactive";
+      document.getElementById("shortcut-button").className = "button bt-inactive";
+      document.getElementById("help-button").className = "button bt-active";
+      document.getElementById("main-screen").style.gridTemplateAreas = '"D D D D"';
+      document.getElementById("editor").style.display = "none";
+      document.getElementById("preview").style.display = "none";
+      document.getElementById("shortcuts").style.display = "none";
+      document.getElementById("help").style.display = "block";
+      document.getElementById("char").style.display = "none";     
 }
