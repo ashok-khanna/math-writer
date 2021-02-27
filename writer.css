@@ -84,7 +84,7 @@ table {
 th, td { border: 1px solid black; padding: 10px; }
 
 /* Add blue background to table headers */
-th { background-color: #97C0EA; }
+th { background-color: #268bd2; color: white; }
 
 /* Custom styling for <mark> tag. Allows us to create the nice
 "Editor Tab", "Preview Tab", etc. tags in the Read Me */
@@ -115,7 +115,7 @@ code { color: #268bd2; }
 ul li { padding: 8px 0px; }
 
 /* Custom HTML tag for quickly typing blue text in the Read Me */
-w { color: blue; }
+w { color: #268bd2; }
 
 /* To dynamically (automatically) adjust the row / column size 
 for our tables in the Read Me */
