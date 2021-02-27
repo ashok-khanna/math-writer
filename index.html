@@ -371,11 +371,11 @@ window.MathJax = {
   document.getElementById("tinymce").focus();
   
   var request = new XMLHttpRequest();
-  request.open('GET', '/somepage', true);
+  request.open('GET', '/help.html', true);
   request.onload = function() {
   if (request.status >= 200 && request.status < 400) {
       var resp = request.responseText;
-      document.querySelector('#div').innerHTML = resp;
+      document.querySelector('#help').innerHTML = resp;
     }
   };
 
