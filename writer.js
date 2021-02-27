@@ -309,7 +309,7 @@ function download(content, fileName, contentType) {
 }
 
 function exportFile(data){
-   fileTitle = "math-export.txt"
+   fileTitle = "math-export.html"
    download(data, fileTitle, 'text/plain');
 }
 
