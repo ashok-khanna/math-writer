@@ -83,6 +83,28 @@ document.getElementById('import-file').click();
 
   },
   init_instance_callback: function (editor) {
+
+    editor.shortcuts.add(
+      'ctrl+shift+49', 'Inserts for ctrl+shift+1', function () {
+      editor();
+    });
+
+    editor.shortcuts.add(
+      'ctrl+shift+50', 'Inserts for ctrl+shift+2', function () {
+      preview();
+    });
+
+    editor.shortcuts.add(
+      'ctrl+shift+51', 'Inserts for ctrl+shift+3', function () {
+      shortcuts();
+    });
+
+    editor.shortcuts.add(
+      'ctrl+shift+52', 'Inserts for ctrl+shift+4', function () {
+      help();
+    });
+
+
     
     editor.shortcuts.add(
       'ctrl+shift+69', 'Inserts for ctrl+shift+e', function () {
