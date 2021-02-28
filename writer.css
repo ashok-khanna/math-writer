@@ -233,7 +233,7 @@ Char Map. Also attaching this container to the main CSS Grid */
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-column-gap: 10px;
-	grid-template-areas: '"A A A A"';
+	grid-template-areas: "A A A A";
 }
 
 /* Editor is visible on page load. We use JavaScript
