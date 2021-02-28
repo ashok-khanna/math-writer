@@ -1,6 +1,6 @@
 /* Global Variables to store state */
 
-var charActive = true;
+var charActive = false;
 
 /* Function that takes a key input and executes code depending on the 
 combination. Ctrl Shift + 1 to Ctrl + Shift 4 are used to toggle

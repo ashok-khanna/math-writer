@@ -233,7 +233,7 @@ Char Map. Also attaching this container to the main CSS Grid */
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-column-gap: 10px;
-	grid-template-areas: '"A A A A" "Char Char Char"';
+	grid-template-areas: '"A A A A"';
 }
 
 /* Editor is visible on page load. We use JavaScript
@@ -268,7 +268,7 @@ as I was getting some strange results */
 below the editor when the 'Char Map' button is clicked. */
 #char {
 	grid-area: char;
-	display: flex;
+	display: none;
 	justify-content: center;
 	align-items: stretch;
 	flex-wrap: wrap;
